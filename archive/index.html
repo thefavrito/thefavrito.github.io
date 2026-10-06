@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Every edition of the India Network Bulletin."><meta property="og:title" content="INB Archive"><meta property="og:description" content="Every edition of the India Network Bulletin."><meta property="og:url" content="https://thefavrito.github.io/archive/"><meta property="og:type" content="article">
+<title>INB Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one-page control-room bulletin — masthead, decisions (from Edition 001: one numbered line each), regional board, map beside lanes to watch, facility signals, exim exposure, numbered insights beside watch rail. Edition 001's end-of-page call and Edition 002's dark decisions block keep their rules below. */
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#13201B; --muted:#5A6A63; --line:#D6DEDA; --faint:#E7ECE9;
+  --accent:#0B6B4C; --accent-ink:#FFFFFF;
+  --g:#1F8A4C; --g-bg:#E3F3E9; --a:#B7791F; --a-bg:#FBF0DC; --r:#B83A2E; --r-bg:#F8E3E0;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 48px}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.mast{display:flex;flex-direction:column;gap:14px;border-bottom:3px solid var(--ink);padding-bottom:16px}
+.mast-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.route{display:inline-flex;align-items:center;gap:8px}
+.shield{background:var(--accent);color:var(--accent-ink);font-family:var(--display);font-weight:800;font-size:12px;padding:2px 7px;border-radius:3px;letter-spacing:.06em}
+h1{font-family:var(--display);font-stretch:78%;font-weight:800;font-size:clamp(34px,6vw,58px);line-height:.95;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.thesis{font-size:18px;max-width:64ch;margin:0;text-wrap:pretty}
+.thesis strong{font-weight:600}
+.overall{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:999px;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.g{color:var(--g);background:var(--g-bg)} .pill.a{color:var(--a);background:var(--a-bg)} .pill.r{color:var(--r);background:var(--r-bg)}
+.pill.n{color:var(--muted);background:var(--faint)}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+h2{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin:0 0 12px;color:var(--muted)}
+.lede{margin:-6px 0 14px;font-size:14px;color:var(--muted);max-width:72ch}
+
+/* regional board */
+.zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.zone{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--zc);padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.zone.g{--zc:var(--g)} .zone.a{--zc:var(--a)} .zone.r{--zc:var(--r)}
+.zone-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.zone h3{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:22px;margin:0;line-height:1}
+.zone p{margin:0;font-size:14px}
+.zone .trend{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+
+/* map + lanes */
+.board{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:24px;align-items:start}
+.mapbox{background:var(--surface);border:1px solid var(--line);padding:12px;margin:0;min-width:0}
+.mapbox svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:11px;color:var(--muted);padding:8px 4px 2px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend svg{width:14px;height:14px}
+.m-lane{fill:none;stroke-width:2.6;stroke-linecap:round}
+.m-lane.rail{stroke-dasharray:1 5;stroke-width:3}
+.m-lbl{font:600 10.5px var(--body);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
+.m-sub{font:400 9px var(--mono);fill:var(--muted);paint-order:stroke;stroke:var(--surface);stroke-width:3px}
+.m-sea{font:italic 400 11px var(--body);fill:var(--muted);opacity:.7}
+
+.tbl-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);min-width:0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-top:1px solid var(--faint);vertical-align:top}
+tbody tr:first-child td{border-top:0}
+td.name{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:15px;line-height:1.2;min-width:150px}
+td.name small{display:block;font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:3px}
+td.st{white-space:nowrap}
+.cost{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.cost.hi{color:var(--r)} .cost.md{color:var(--a)}
+
+/* complaint signal */
+.signal{background:var(--surface);border:1px dashed var(--line);padding:18px 20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 32px}
+.signal h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;margin:0 0 6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.signal p{margin:0 0 8px;font-size:14px;max-width:62ch}
+.signal ol{margin:0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+.ghost{border-collapse:collapse;width:100%;font-size:13px;color:var(--muted)}
+.ghost th{padding:6px 8px}
+.ghost td{padding:8px;border-top:1px dashed var(--line)}
+.ghost .bar{display:block;height:8px;background:var(--faint);border-radius:2px}
+
+.two{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:start}
+.item{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 18px;padding-block:16px;border-top:1px solid var(--line)}
+.item:first-of-type{border-top:0;padding-top:0}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;display:flex;flex-direction:column;gap:6px;padding-top:4px}
+.conf{color:var(--ink)}
+.item h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;line-height:1.2;margin:0 0 6px;text-wrap:balance}
+.item p{margin:0 0 8px;max-width:66ch}
+.sowhat{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-size:14px;margin:0}
+.sowhat b{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+.num{font-variant-numeric:tabular-nums}
+
+.rail{background:var(--surface);border:1px solid var(--line);padding:18px 18px 8px}
+.cal{list-style:none;margin:0;padding:0}
+.cal li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;padding-block:9px;border-top:1px dashed var(--line);font-size:13.5px;line-height:1.4}
+.cal li:first-child{border-top:0}
+.cal .d{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--muted);padding-top:1px}
+.cal li.hot .d{color:var(--r);font-weight:500}
+.cal li.today .d{color:var(--accent);font-weight:500}
+
+.call{background:var(--ink);color:var(--bg);padding:22px 24px;display:flex;flex-direction:column;gap:10px}
+.call h2{color:var(--bg);opacity:.75;margin:0}
+.call ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-width:84ch}
+.call ol.dec{gap:16px}
+.dec p{margin:0}
+.dec .what{font-weight:600}
+.dec .why{font-size:14px;opacity:.85;margin-top:4px}
+.dec .why b{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;opacity:.75;margin-right:8px}
+
+/* decisions from Edition 001: one numbered line each, situation then the decision in bold */
+.declist{margin:0;padding:0;list-style:none;counter-reset:dec;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent)}
+.declist li{counter-increment:dec;display:grid;grid-template-columns:28px minmax(0,1fr);gap:0 10px;padding:12px 16px;border-top:1px solid var(--faint);font-size:15px;max-width:none}
+.declist li:first-child{border-top:0}
+.declist li::before{content:counter(dec);font-family:var(--display);font-stretch:80%;font-weight:800;font-size:20px;line-height:1.2;color:var(--accent)}
+.declist strong{font-weight:600}
+.key{margin:-4px 0 12px;font-size:12.5px;color:var(--muted);line-height:1.9}
+.key .pill{font-size:10.5px;padding:1px 7px;vertical-align:1px}
+.rail .key{margin:-6px 0 6px}
+.changes{margin:0;font-size:13px;color:var(--muted);max-width:90ch;border-left:3px solid var(--line);padding-left:10px}
+.checks{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:84ch;font-size:14.5px}
+
+/* insights from Edition 001: numbered by priority */
+.ins{list-style:none;margin:0;padding:0;counter-reset:ins}
+.ins>li{counter-increment:ins;display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 14px;padding-block:16px;border-top:1px solid var(--line)}
+.ins>li:first-child{border-top:0;padding-top:0}
+.ins>li::before{content:counter(ins);font-family:var(--display);font-stretch:80%;font-weight:800;font-size:30px;line-height:1;color:var(--accent)}
+.ins-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:6px}
+.ins h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;line-height:1.2;margin:0;text-wrap:balance}
+.conf-chip{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ins p{margin:0 0 8px;max-width:66ch}
+.ins .implic{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-weight:500;margin:0}
+
+.ref{font-family:var(--mono);font-size:10px;line-height:0;margin-left:1px;letter-spacing:0}
+.ref a{text-decoration:none}
+
+.method{font-size:13.5px;color:var(--muted);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.method h2{grid-column:1/-1;margin:0}
+.method p{margin:0}
+.sources{font-size:13px;color:var(--muted)}
+.sources ol{margin:0;padding-left:20px;columns:2;column-gap:32px}
+.sources li{break-inside:avoid;margin-bottom:4px}
+.foot{font-family:var(--mono);font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+
+@media (max-width:900px){
+  .zones{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .board,.two,.signal,.method{grid-template-columns:minmax(0,1fr)}
+  .mapbox{max-width:520px}
+  .sources ol{columns:1}
+}
+@media (max-width:520px){
+  .zones{grid-template-columns:minmax(0,1fr)}
+  .item{grid-template-columns:minmax(0,1fr)}
+  .ins>li{grid-template-columns:26px minmax(0,1fr);gap:0 10px}
+  .tag{flex-direction:row;gap:12px;padding-top:0}
+  .thesis{font-size:16px}
+}
+</style>
+<style>.sitenav{max-width:1100px;margin:28px auto 0;padding:14px 16px 0;border-top:1px solid #D6DEDA;display:flex;flex-wrap:wrap;gap:8px 20px;font:500 13px "IBM Plex Mono",ui-monospace,monospace}.sitenav a{color:#0B6B4C}</style></head><body>
+
+<style>.arch{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}.arch li{background:var(--surface);border:1px solid var(--line);padding:14px 16px;font-family:var(--mono);font-size:13px}.arch a{font-weight:500}.arch .h{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:20px;color:var(--ink)}</style>
+<div class="wrap"><header class="mast"><div class="mast-top"><span class="route"><span class="shield">INB</span> India Network Bulletin</span></div><h1>All editions</h1><p class="thesis">A daily read on India's logistics network, built only from public data, with every claim sourced.</p></header><ol class="arch" reversed><li><a href="/editions/2026-10-06/">Edition 001 · Tuesday 6 October 2026</a> <span class="pill a">Amber</span><br><span class="h">The sale opens on a clear network. The east is where it can break.</span></li></ol></div>
+<nav class="sitenav" aria-label="Site"><a href="/">Latest bulletin</a><a href="/archive/">All editions</a><a href="/seasons/">Seasonal calendar</a><a href="/network/">Reference network</a></nav>
+</body></html>

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Sales open on Thursday. Outside the east the network runs as in any sale season. The east is Red: an Odisha bandh on Thursday, with Kolkata&#x27;s truck curbs from Saturday to 27 October and a Bay low due around 13 October. The Gulf sea route stays shut."><meta property="og:title" content="INB 001: The sale opens on a clear network. The east is where it can break."><meta property="og:description" content="Sales open on Thursday. Outside the east the network runs as in any sale season. The east is Red: an Odisha bandh on Thursday, with Kolkata&#x27;s truck curbs from Saturday to 27 October and a Bay low due around 13 October. The Gulf sea route stays shut."><meta property="og:url" content="https://thefavrito.github.io/"><meta property="og:type" content="article"><meta property="og:image" content="https://thefavrito.github.io/og.png"><meta name="twitter:card" content="summary_large_image">
+<title>INB 001: The sale opens on a clear network. The east is where it can break.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one-page control-room bulletin — masthead, decisions (from Edition 001: one numbered line each), regional board, map beside lanes to watch, facility signals, exim exposure, numbered insights beside watch rail. Edition 001's end-of-page call and Edition 002's dark decisions block keep their rules below. */
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#13201B; --muted:#5A6A63; --line:#D6DEDA; --faint:#E7ECE9;
+  --accent:#0B6B4C; --accent-ink:#FFFFFF;
+  --g:#1F8A4C; --g-bg:#E3F3E9; --a:#B7791F; --a-bg:#FBF0DC; --r:#B83A2E; --r-bg:#F8E3E0;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 48px}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.mast{display:flex;flex-direction:column;gap:14px;border-bottom:3px solid var(--ink);padding-bottom:16px}
+.mast-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.route{display:inline-flex;align-items:center;gap:8px}
+.shield{background:var(--accent);color:var(--accent-ink);font-family:var(--display);font-weight:800;font-size:12px;padding:2px 7px;border-radius:3px;letter-spacing:.06em}
+h1{font-family:var(--display);font-stretch:78%;font-weight:800;font-size:clamp(34px,6vw,58px);line-height:.95;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.thesis{font-size:18px;max-width:64ch;margin:0;text-wrap:pretty}
+.thesis strong{font-weight:600}
+.overall{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:999px;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.g{color:var(--g);background:var(--g-bg)} .pill.a{color:var(--a);background:var(--a-bg)} .pill.r{color:var(--r);background:var(--r-bg)}
+.pill.n{color:var(--muted);background:var(--faint)}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+h2{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin:0 0 12px;color:var(--muted)}
+.lede{margin:-6px 0 14px;font-size:14px;color:var(--muted);max-width:72ch}
+
+/* regional board */
+.zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.zone{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--zc);padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.zone.g{--zc:var(--g)} .zone.a{--zc:var(--a)} .zone.r{--zc:var(--r)}
+.zone-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.zone h3{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:22px;margin:0;line-height:1}
+.zone p{margin:0;font-size:14px}
+.zone .trend{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+
+/* map + lanes */
+.board{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:24px;align-items:start}
+.mapbox{background:var(--surface);border:1px solid var(--line);padding:12px;margin:0;min-width:0}
+.mapbox svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:11px;color:var(--muted);padding:8px 4px 2px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend svg{width:14px;height:14px}
+.m-lane{fill:none;stroke-width:2.6;stroke-linecap:round}
+.m-lane.rail{stroke-dasharray:1 5;stroke-width:3}
+.m-lbl{font:600 10.5px var(--body);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
+.m-sub{font:400 9px var(--mono);fill:var(--muted);paint-order:stroke;stroke:var(--surface);stroke-width:3px}
+.m-sea{font:italic 400 11px var(--body);fill:var(--muted);opacity:.7}
+
+.tbl-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);min-width:0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-top:1px solid var(--faint);vertical-align:top}
+tbody tr:first-child td{border-top:0}
+td.name{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:15px;line-height:1.2;min-width:150px}
+td.name small{display:block;font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:3px}
+td.st{white-space:nowrap}
+.cost{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.cost.hi{color:var(--r)} .cost.md{color:var(--a)}
+
+/* complaint signal */
+.signal{background:var(--surface);border:1px dashed var(--line);padding:18px 20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 32px}
+.signal h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;margin:0 0 6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.signal p{margin:0 0 8px;font-size:14px;max-width:62ch}
+.signal ol{margin:0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+.ghost{border-collapse:collapse;width:100%;font-size:13px;color:var(--muted)}
+.ghost th{padding:6px 8px}
+.ghost td{padding:8px;border-top:1px dashed var(--line)}
+.ghost .bar{display:block;height:8px;background:var(--faint);border-radius:2px}
+
+.two{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:start}
+.item{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 18px;padding-block:16px;border-top:1px solid var(--line)}
+.item:first-of-type{border-top:0;padding-top:0}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;display:flex;flex-direction:column;gap:6px;padding-top:4px}
+.conf{color:var(--ink)}
+.item h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;line-height:1.2;margin:0 0 6px;text-wrap:balance}
+.item p{margin:0 0 8px;max-width:66ch}
+.sowhat{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-size:14px;margin:0}
+.sowhat b{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+.num{font-variant-numeric:tabular-nums}
+
+.rail{background:var(--surface);border:1px solid var(--line);padding:18px 18px 8px}
+.cal{list-style:none;margin:0;padding:0}
+.cal li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;padding-block:9px;border-top:1px dashed var(--line);font-size:13.5px;line-height:1.4}
+.cal li:first-child{border-top:0}
+.cal .d{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--muted);padding-top:1px}
+.cal li.hot .d{color:var(--r);font-weight:500}
+.cal li.today .d{color:var(--accent);font-weight:500}
+
+.call{background:var(--ink);color:var(--bg);padding:22px 24px;display:flex;flex-direction:column;gap:10px}
+.call h2{color:var(--bg);opacity:.75;margin:0}
+.call ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-width:84ch}
+.call ol.dec{gap:16px}
+.dec p{margin:0}
+.dec .what{font-weight:600}
+.dec .why{font-size:14px;opacity:.85;margin-top:4px}
+.dec .why b{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;opacity:.75;margin-right:8px}
+
+/* decisions from Edition 001: one numbered line each, situation then the decision in bold */
+.declist{margin:0;padding:0;list-style:none;counter-reset:dec;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent)}
+.declist li{counter-increment:dec;display:grid;grid-template-columns:28px minmax(0,1fr);gap:0 10px;padding:12px 16px;border-top:1px solid var(--faint);font-size:15px;max-width:none}
+.declist li:first-child{border-top:0}
+.declist li::before{content:counter(dec);font-family:var(--display);font-stretch:80%;font-weight:800;font-size:20px;line-height:1.2;color:var(--accent)}
+.declist strong{font-weight:600}
+.key{margin:-4px 0 12px;font-size:12.5px;color:var(--muted);line-height:1.9}
+.key .pill{font-size:10.5px;padding:1px 7px;vertical-align:1px}
+.rail .key{margin:-6px 0 6px}
+.changes{margin:0;font-size:13px;color:var(--muted);max-width:90ch;border-left:3px solid var(--line);padding-left:10px}
+.checks{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:84ch;font-size:14.5px}
+
+/* insights from Edition 001: numbered by priority */
+.ins{list-style:none;margin:0;padding:0;counter-reset:ins}
+.ins>li{counter-increment:ins;display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 14px;padding-block:16px;border-top:1px solid var(--line)}
+.ins>li:first-child{border-top:0;padding-top:0}
+.ins>li::before{content:counter(ins);font-family:var(--display);font-stretch:80%;font-weight:800;font-size:30px;line-height:1;color:var(--accent)}
+.ins-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:6px}
+.ins h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;line-height:1.2;margin:0;text-wrap:balance}
+.conf-chip{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ins p{margin:0 0 8px;max-width:66ch}
+.ins .implic{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-weight:500;margin:0}
+
+.ref{font-family:var(--mono);font-size:10px;line-height:0;margin-left:1px;letter-spacing:0}
+.ref a{text-decoration:none}
+
+.method{font-size:13.5px;color:var(--muted);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.method h2{grid-column:1/-1;margin:0}
+.method p{margin:0}
+.sources{font-size:13px;color:var(--muted)}
+.sources ol{margin:0;padding-left:20px;columns:2;column-gap:32px}
+.sources li{break-inside:avoid;margin-bottom:4px}
+.foot{font-family:var(--mono);font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+
+@media (max-width:900px){
+  .zones{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .board,.two,.signal,.method{grid-template-columns:minmax(0,1fr)}
+  .mapbox{max-width:520px}
+  .sources ol{columns:1}
+}
+@media (max-width:520px){
+  .zones{grid-template-columns:minmax(0,1fr)}
+  .item{grid-template-columns:minmax(0,1fr)}
+  .ins>li{grid-template-columns:26px minmax(0,1fr);gap:0 10px}
+  .tag{flex-direction:row;gap:12px;padding-top:0}
+  .thesis{font-size:16px}
+}
+</style>
+<style>.sitenav{max-width:1100px;margin:28px auto 0;padding:14px 16px 0;border-top:1px solid #D6DEDA;display:flex;flex-wrap:wrap;gap:8px 20px;font:500 13px "IBM Plex Mono",ui-monospace,monospace}.sitenav a{color:#0B6B4C}</style></head><body>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="mast-top">
+    <span class="route"><span class="shield">INB</span> India Network Bulletin · Edition 001</span>
+    <span>Tuesday 6 October 2026 · 11:30 IST</span>
+  </div>
+  <h1>The sale opens on a clear network. The east is where it can break.</h1>
+  <p class="thesis">Sales open on <strong>Thursday</strong><sup class="ref">[<a href="#s13">13</a>,<a href="#s14">14</a>]</sup>. Outside the east the network runs as in any sale season<sup class="ref">[<a href="#s11">11</a>]</sup>. The east is Red: an Odisha bandh on Thursday<sup class="ref">[<a href="#s7">7</a>]</sup>, with Kolkata's truck curbs from Saturday to 27 October<sup class="ref">[<a href="#s6">6</a>]</sup> and a Bay low due around 13 October<sup class="ref">[<a href="#s3">3</a>]</sup>. The Gulf sea route stays shut<sup class="ref">[<a href="#s18">18</a>]</sup>.</p>
+  <div class="overall">
+    <span class="pill a">Network: Amber</span>
+    <span class="meta">Outlook window: Tue 6 – Sun 11 Oct</span>
+  </div>
+</header>
+
+<section aria-labelledby="dec-h">
+  <h2 id="dec-h">Decisions this week</h2>
+  <ol class="declist">
+    <li><span>Sale volume reaches every metro hub once early access opens<sup class="ref">[<a href="#s13">13</a>,<a href="#s14">14</a>]</sup>. <strong>For carriers, the decision is how much sort and linehaul capacity to add before early access opens on 8th October (Thursday).</strong></span></li>
+    <li><span>Odisha's bandh and Kolkata's Mahalaya truck ban close eastern roads twice in the sale's first three days<sup class="ref">[<a href="#s7">7</a>,<a href="#s6">6</a>]</sup>. <strong>For shippers and carriers, the decision is which eastern loads move before the bandh on 8th October (Thursday) and which wait until after the ban on 10th October (Saturday).</strong> With both stoppages dated and Puja curbs to follow, the evidence favours moving them before the bandh.</span></li>
+    <li><span>The Gulf route is shut and westbound air and ocean space is tightening into peak<sup class="ref">[<a href="#s18">18</a>,<a href="#s20">20</a>,<a href="#s22">22</a>]</sup>. <strong>For exporters, the decision is how much Europe and US space to commit for peak-season orders while it is still available.</strong> With air rates to the US up 7% in a week<sup class="ref">[<a href="#s22">22</a>]</sup>, the evidence favours committing early.</span></li>
+    <li><span>Kolkata port trucks run four hours a day through the Puja days and stop for the immersions<sup class="ref">[<a href="#s6">6</a>]</sup>. <strong>For importers, the decision is which Diwali-critical boxes must clear before the curbs begin on 13th October (Tuesday).</strong> With no relief until the immersions end on 27th October (Tuesday)<sup class="ref">[<a href="#s6">6</a>]</sup>, the evidence favours clearing them first.</span></li>
+  </ol>
+</section>
+
+<section aria-labelledby="zones-h">
+  <h2 id="zones-h">Regional view · next six days</h2>
+  <p class="key"><span class="pill g">Green</span> normal for the season, which in sale weeks can still be busy · <span class="pill a">Amber</span> a disruption beyond the season slows freight · <span class="pill r">Red</span> a disruption stops freight across a state or a major route</p>
+  <div class="zones">
+    <article class="zone g">
+      <div class="zone-head"><h3>North</h3><span class="pill g">Green</span></div>
+      <p>The usual sale-week strain: Delhi's helpline searches rose 1.2 to 1.9 times after the last four sale openings<sup class="ref">[<a href="#s11">11</a>]</sup>. Delhi traffic runs 6 points above usual today<sup class="ref">[<a href="#s9">9</a>]</sup>. Isolated storms over Delhi, Haryana and Punjab to 9 Oct, and widespread rain in Jammu and Kashmir today and on 9 Oct<sup class="ref">[<a href="#s1">1</a>]</sup>.</p>
+      <span class="trend">Watch: NH-44; Delhi truck rules from 31 Oct</span>
+    </article>
+    <article class="zone g">
+      <div class="zone-head"><h3>West</h3><span class="pill g">Green</span></div>
+      <p>The usual sale-week strain: Maharashtra's helpline searches rose 1.4 times after each of the last four sale openings<sup class="ref">[<a href="#s11">11</a>]</sup>. JNPA's latest report (Monday) shows yards 56% full and trucks in and out in under two hours<sup class="ref">[<a href="#s10">10</a>]</sup>. The shut Gulf sea route hits exporters (see exim below)<sup class="ref">[<a href="#s18">18</a>]</sup>.</p>
+      <span class="trend">Trend: steady</span>
+    </article>
+    <article class="zone g">
+      <div class="zone-head"><h3>South</h3><span class="pill g">Green</span></div>
+      <p>The usual sale-week strain for Bengaluru, Hyderabad and Chennai<sup class="ref">[<a href="#s11">11</a>]</sup>. Heavy rain today in Tamil Nadu, Kerala and south interior Karnataka, and rain across Kerala to 11 Oct<sup class="ref">[<a href="#s1">1</a>]</sup>. IMD expects a Bay low around 13 Oct, within the post-monsoon cyclone season<sup class="ref">[<a href="#s12">12</a>]</sup>, with a low chance of it becoming a depression<sup class="ref">[<a href="#s3">3</a>]</sup>.</p>
+      <span class="trend">Watch: Bay low around 13 Oct; Kerala ghats</span>
+    </article>
+    <article class="zone r">
+      <div class="zone-head"><h3>East</h3><span class="pill r">Red</span></div>
+      <p>Red for Odisha's statewide bandh on Thursday, with blockades in the mining belts<sup class="ref">[<a href="#s7">7</a>]</sup>, during storms over Odisha and south Bengal to 8 Oct<sup class="ref">[<a href="#s1">1</a>]</sup>. Kolkata's sale and Puja weeks are seasonal but the hardest of any metro: helpline searches rose 2.2 to 6.0 times after the last four sale openings<sup class="ref">[<a href="#s11">11</a>]</sup>, and goods vehicles are barred on Saturday<sup class="ref">[<a href="#s6">6</a>]</sup>.</p>
+      <span class="trend">Trend: deteriorating from 8 Oct</span>
+    </article>
+    <article class="zone a">
+      <div class="zone-head"><h3>Northeast</h3><span class="pill a">Amber</span></div>
+      <p>Amber for night closures on NH-10 into Sikkim from 7 Oct<sup class="ref">[<a href="#s4">4</a>]</sup>, with widespread rain in Sikkim and the Bengal hills 7–9 Oct<sup class="ref">[<a href="#s1">1</a>]</sup>. IMD's bulletin today has no heavy-rain warning for the rest of the region<sup class="ref">[<a href="#s1">1</a>]</sup>.</p>
+      <span class="trend">Watch: NH-10, Siliguri</span>
+    </article>
+    <article class="zone g">
+      <div class="zone-head"><h3>Central</h3><span class="pill g">Green</span></div>
+      <p>The usual festive-week strain<sup class="ref">[<a href="#s12">12</a>]</sup>. Scattered rain over Chhattisgarh and east Madhya Pradesh to 10 Oct, and no warnings<sup class="ref">[<a href="#s1">1</a>]</sup>.</p>
+      <span class="trend">Trend: steady</span>
+    </article>
+  </div>
+</section>
+
+<section aria-labelledby="lanes-h">
+  <h2 id="lanes-h">Network map and lanes to watch</h2>
+  <p class="key"><span class="pill g">Green</span> normal for the season, which in sale weeks can still be busy · <span class="pill a">Amber</span> a disruption beyond the season slows freight · <span class="pill r">Red</span> a disruption stops freight across a state or a major route</p>
+  <div class="board">
+    <figure class="mapbox">
+      <svg viewBox="0 0 440 470" role="img" aria-label="Schematic map of India's logistics network with node and lane status"><text class="m-sea" x="40" y="330">Arabian Sea</text><text class="m-sea" x="300" y="370">Bay of Bengal</text><line x1="154.1" y1="137.4" x2="95.3" y2="284.9" stroke="var(--line)" stroke-width="1.4"/><line x1="95.3" y1="284.9" x2="89.9" y2="223.2" stroke="var(--line)" stroke-width="1.4"/><line x1="89.9" y1="223.2" x2="49.2" y2="227.3" stroke="var(--line)" stroke-width="1.4"/><line x1="95.3" y1="284.9" x2="161.2" y2="377.6" stroke="var(--line)" stroke-width="1.4"/><line x1="95.3" y1="284.9" x2="182.3" y2="251.9" stroke="var(--line)" stroke-width="1.4"/><line x1="182.3" y1="251.9" x2="154.1" y2="137.4" stroke="var(--line)" stroke-width="1.4"/><line x1="182.3" y1="251.9" x2="173.6" y2="309.8" stroke="var(--line)" stroke-width="1.4"/><line x1="182.3" y1="251.9" x2="313.7" y2="230.1" stroke="var(--line)" stroke-width="1.4"/><line x1="173.6" y1="309.8" x2="161.2" y2="377.6" stroke="var(--line)" stroke-width="1.4"/><line x1="161.2" y1="377.6" x2="199.0" y2="375.9" stroke="var(--line)" stroke-width="1.4"/><line x1="154.1" y1="137.4" x2="313.7" y2="230.1" stroke="var(--line)" stroke-width="1.4"/><line x1="313.7" y1="230.1" x2="314.7" y2="166.1" stroke="var(--line)" stroke-width="1.4"/><line x1="314.7" y1="166.1" x2="361.6" y2="175.2" stroke="var(--line)" stroke-width="1.4"/><line x1="154.1" y1="137.4" x2="136.4" y2="102.1" stroke="var(--line)" stroke-width="1.4"/><line x1="136.4" y1="102.1" x2="122.3" y2="73.9" stroke="var(--line)" stroke-width="1.4"/><line x1="161.2" y1="377.6" x2="142.3" y2="424.3" stroke="var(--line)" stroke-width="1.4"/><line x1="154.1" y1="137.4" x2="135.7" y2="163.5" stroke="var(--line)" stroke-width="1.4"/><line x1="135.7" y1="163.5" x2="89.9" y2="223.2" stroke="var(--line)" stroke-width="1.4"/><polyline class="m-lane" points="121.5,53.2 122.3,73.9" stroke="var(--a)"><title>NH-44</title></polyline><polyline class="m-lane" points="314.7,166.1 317.2,152.8" stroke="var(--a)"><title>NH-10</title></polyline><polyline class="m-lane" points="361.6,175.2 376.6,195.3" stroke="var(--a)"><title>NH-6/27</title></polyline><polyline class="m-lane" points="313.7,230.1 277.7,265.0 199.0,375.9" stroke="var(--r)"><title>NH-16</title></polyline><polyline class="m-lane" points="142.3,424.3 152.2,425.6" stroke="var(--a)"><title>Kerala ghats</title></polyline><polyline class="m-lane rail" points="154.1,137.4 135.7,163.5 89.9,223.2 49.2,227.3" stroke="var(--g)"><title>Western DFC</title></polyline><g><circle cx="154.1" cy="137.4" r="6" fill="var(--g)"/><text class="m-lbl" x="163.1" y="131.4" text-anchor="start">Delhi NCR</text></g><g><rect x="89.8" y="279.4" width="11" height="11" fill="var(--g)"/><text class="m-lbl" x="86.3" y="288.9" text-anchor="end">Mumbai / JNPA</text></g><g><rect x="43.7" y="221.8" width="11" height="11" fill="var(--g)"/><text class="m-lbl" x="49.2" y="217.3" text-anchor="middle">Mundra</text></g><g><circle cx="161.2" cy="377.6" r="6" fill="var(--g)"/><text class="m-lbl" x="157.2" y="399.6" text-anchor="middle">Bengaluru</text></g><g><circle cx="173.6" cy="309.8" r="6" fill="var(--g)"/><text class="m-lbl" x="183.6" y="313.8" text-anchor="start">Hyderabad</text></g><g><rect x="193.5" y="370.4" width="11" height="11" fill="var(--a)"/><text class="m-lbl" x="208.0" y="379.9" text-anchor="start">Chennai</text></g><g><circle cx="313.7" cy="230.1" r="6" fill="var(--a)"/><text class="m-lbl" x="304.7" y="244.1" text-anchor="end">Kolkata</text></g><g><circle cx="277.7" cy="265.0" r="6" fill="var(--r)"/><text class="m-lbl" x="268.7" y="269.0" text-anchor="end">Bhubaneswar</text></g><g><circle cx="182.3" cy="251.9" r="6" fill="var(--g)"/><text class="m-lbl" x="191.3" y="255.9" text-anchor="start">Nagpur</text></g><g><circle cx="314.7" cy="166.1" r="6" fill="var(--a)"/><text class="m-lbl" x="305.7" y="170.1" text-anchor="end">Siliguri</text></g><g><circle cx="361.6" cy="175.2" r="6" fill="var(--a)"/><text class="m-lbl" x="361.6" y="164.2" text-anchor="middle">Guwahati</text></g><g><circle cx="142.3" cy="424.3" r="6" fill="var(--g)"/><text class="m-lbl" x="133.3" y="428.3" text-anchor="end">Kochi</text></g><g><circle cx="89.9" cy="223.2" r="6" fill="var(--g)"/><text class="m-lbl" x="98.9" y="219.2" text-anchor="start">Ahmedabad</text></g><g><circle cx="122.3" cy="73.9" r="2.6" fill="var(--muted)"/><text class="m-sub" x="115.3" y="77.9" text-anchor="end">Jammu</text></g><g><circle cx="121.5" cy="53.2" r="2.6" fill="var(--muted)"/><text class="m-sub" x="129.5" y="57.2" text-anchor="start">Srinagar</text></g><g><circle cx="317.2" cy="152.8" r="2.6" fill="var(--muted)"/><text class="m-sub" x="324.2" y="149.8" text-anchor="start">Gangtok</text></g><g><circle cx="376.6" cy="195.3" r="2.6" fill="var(--muted)"/><text class="m-sub" x="383.6" y="205.3" text-anchor="start">Silchar</text></g><g><circle cx="122.3" cy="378.5" r="2.6" fill="var(--muted)"/><text class="m-sub" x="115.3" y="382.5" text-anchor="end">Mangaluru</text></g><g><circle cx="152.2" cy="425.6" r="2.6" fill="var(--muted)"/><text class="m-sub" x="159.2" y="435.6" text-anchor="start">Idukki</text></g><g><circle cx="135.7" cy="163.5" r="2.6" fill="var(--muted)"/><text class="m-sub" x="128.7" y="167.5" text-anchor="end">Jaipur</text></g><g><circle cx="136.4" cy="102.1" r="2.6" fill="var(--muted)"/><text class="m-sub" x="129.4" y="99.1" text-anchor="end">Ludhiana</text></g><g transform="translate(330,412)"><circle r="4" fill="var(--g)"/><text class="m-sub" x="8" y="3">Green</text><circle cy="14" r="4" fill="var(--a)"/><text class="m-sub" x="8" y="17">Amber</text><circle cy="28" r="4" fill="var(--r)"/><text class="m-sub" x="8" y="31">Red</text></g></svg>
+      <div class="legend" aria-hidden="true">
+        <span><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="var(--muted)"/></svg>Hub city</span>
+        <span><svg viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="var(--muted)"/></svg>Port city</span>
+        <span><svg viewBox="0 0 14 14"><line x1="1" y1="7" x2="13" y2="7" stroke="var(--muted)" stroke-width="3" stroke-linecap="round"/></svg>Lane on watch</span>
+        <span><svg viewBox="0 0 14 14"><line x1="1" y1="7" x2="13" y2="7" stroke="var(--muted)" stroke-width="3" stroke-dasharray="1 4" stroke-linecap="round"/></svg>Freight rail</span>
+      </div>
+    </figure>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Lane</th><th>Status</th><th>Why it matters this week</th></tr></thead>
+        <tbody>
+          <tr><td class="name">NH-10 Siliguri–Gangtok<small>Sikkim's only trunk road</small></td><td class="st"><span class="pill a">Amber</span></td><td>Closed to all vehicles 9 pm to 6 am on the Sevoke–Rangpo stretch, 7–15 Oct and 26 Oct–5 Nov<sup class="ref">[<a href="#s4">4</a>]</sup>, with widespread rain 7–9 Oct<sup class="ref">[<a href="#s1">1</a>]</sup>.</td></tr>
+          <tr><td class="name">NH-6 Guwahati–Shillong–Silchar<small>Barak Valley, Mizoram, Tripura</small></td><td class="st"><span class="pill a">Amber</span></td><td>Heavy rain in Meghalaya at the weekend<sup class="ref">[<a href="#s2">2</a>]</sup>; today's IMD bulletin has no heavy-rain warning<sup class="ref">[<a href="#s1">1</a>]</sup>. Held Amber to 7 Oct while slopes settle.</td></tr>
+          <tr><td class="name">NH-44 Jammu–Srinagar<small>Kashmir's all-weather link</small></td><td class="st"><span class="pill a">Amber</span></td><td>Single-lane stretches at Dalwas (Udhampur) and Marog–Kishwari Pather; loaded tankers only 5 pm to 5 am beyond Chenani; night travel advised against<sup class="ref">[<a href="#s5">5</a>]</sup>. Widespread rain today and on 9 Oct<sup class="ref">[<a href="#s1">1</a>]</sup>.</td></tr>
+          <tr><td class="name">NH-16 Kolkata–Bhubaneswar–Chennai<small>East coast trunk</small></td><td class="st"><span class="pill r">Red</span></td><td>Stopped in Odisha by Thursday's bandh<sup class="ref">[<a href="#s7">7</a>]</sup>; storms over Odisha and strong winds on the Andhra coast to 8 Oct<sup class="ref">[<a href="#s1">1</a>]</sup>.</td></tr>
+          <tr><td class="name">Kerala ghats into Idukki<small>Kochi–Munnar–Kumily roads</small></td><td class="st"><span class="pill a">Amber</span></td><td>Isolated heavy rain today and again 9–10 Oct, with rain across the state to 11 Oct<sup class="ref">[<a href="#s1">1</a>]</sup>.</td></tr>
+          <tr><td class="name">Western DFC (rail)<small>Dadri–JNPA</small></td><td class="st"><span class="pill g">Green</span></td><td>Complete from Dadri to JNPA since 8 Sep, with double-stack trains<sup class="ref">[<a href="#s28">28</a>]</sup>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="exim-h">
+  <h2 id="exim-h">B2B and exim exposure</h2>
+  <p class="lede">Import and export flows where a delay costs far more than a late parcel. Flows covered in the decisions or regions above are not repeated.</p>
+  <p class="key"><span class="pill g">Green</span> normal for the season, which in sale weeks can still be busy · <span class="pill a">Amber</span> a disruption beyond the season slows freight · <span class="pill r">Red</span> a disruption stops freight across a state or a major route<br>Cost of delay is our judgement: High where a delay holds up export orders, factory inputs or plant feedstock; Medium for stock replenishment.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Flow</th><th>Status</th><th>Exposure this week</th><th>Cost of delay</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Central India → Mundra → Gulf<small>Industrial and agri exports</small></td><td class="st"><span class="pill r">Red</span></td><td>Sea leg shut: five incidents near Hormuz on Monday, four of them tanker attacks; one transit in IMF PortWatch's latest published count (27 Sep), against a pre-crisis average of 85 a day<sup class="ref">[<a href="#s18">18</a>]</sup>. India–Middle East rates up 25–40% since late August<sup class="ref">[<a href="#s19">19</a>]</sup>.</td><td><span class="cost hi">High</span></td></tr>
+        <tr><td class="name">Westbound exports to Europe and the US<small>Sea via the freight corridor and JNPA; air via the metros</small></td><td class="st"><span class="pill a">Amber</span></td><td>Rail to the port is the strong link<sup class="ref">[<a href="#s28">28</a>]</sup>. Air and ocean space was tight going into peak<sup class="ref">[<a href="#s20">20</a>]</sup>; international air freight was 15.5% above last year in August<sup class="ref">[<a href="#s21">21</a>]</sup> and US air rates rose 7% in the week to 5 Oct<sup class="ref">[<a href="#s22">22</a>]</sup>.</td><td><span class="cost hi">High</span></td></tr>
+        <tr><td class="name">Odisha mines → steel plants and ports<small>Iron ore and minerals</small></td><td class="st"><span class="pill r">Red</span></td><td>Bandh on Thursday with blockades called in the mining belts to stop mineral transport<sup class="ref">[<a href="#s7">7</a>]</sup>. Congress has promised a seven-day mining blockade after Dussehra, dates not yet named<sup class="ref">[<a href="#s8">8</a>]</sup>.</td><td><span class="cost hi">High</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="two">
+  <section aria-labelledby="ins-h">
+    <h2 id="ins-h">Network insights</h2>
+    <ol class="ins">
+      <li><div>
+        <div class="ins-head"><h3>The sale starts on a clear network. Outside the east, it will strain the way it does every year.</h3><span class="conf-chip">High confidence</span></div>
+        <p>Today traffic in ten big cities runs 1 to 6 points above usual<sup class="ref">[<a href="#s9">9</a>]</sup> and JNPA turns trucks round in under two hours<sup class="ref">[<a href="#s10">10</a>]</sup>. Amazon's sale and Flipkart's early access both open on Thursday<sup class="ref">[<a href="#s13">13</a>,<a href="#s14">14</a>]</sup>. Flipkart says it has added more than 900 festive delivery hubs<sup class="ref">[<a href="#s15">15</a>]</sup> and more than 2.5 lakh direct and indirect seasonal job openings<sup class="ref">[<a href="#s16">16</a>]</sup>. Our proxy for sale-week strain is Google searches for courier customer-care numbers: it measures customers chasing parcels, not network load directly. In the four weeks after each of the last four sale openings, these searches rose 1.2 to 1.9 times in Delhi, Maharashtra and Karnataka, up to 2.8 times in Telangana and 2.2 in Tamil Nadu in single years, and 2.2 to 6.0 times in West Bengal<sup class="ref">[<a href="#s11">11</a>]</sup>.</p>
+        <p class="implic">Outside the east, sale-week service will be decided in the first 72 hours by who starts with empty hubs. There is no outside disruption to blame there; any backlog will be self-inflicted.</p>
+      </div></li>
+      <li><div>
+        <div class="ins-head"><h3>The east has no clean week until late October.</h3><span class="conf-chip">High confidence</span></div>
+        <p>This week Odisha has storms to Thursday<sup class="ref">[<a href="#s1">1</a>]</sup> and a statewide bandh on Thursday<sup class="ref">[<a href="#s7">7</a>]</sup>, and Kolkata bars goods vehicles on Saturday. Puja curbs follow from 13 to 19 October and immersion bans on 20–24 and 26–27 October<sup class="ref">[<a href="#s6">6</a>]</sup>. IMD expects a low over the Andaman Sea around 13 October, moving into the Bay, with a low chance of it becoming a depression<sup class="ref">[<a href="#s3">3</a>]</sup>; cyclones are part of the east coast's season from October<sup class="ref">[<a href="#s12">12</a>]</sup>. The trend is the concern: after each sale opening, West Bengal's helpline searches rose 2.2 times in 2022, 2.5 in 2023, 3.8 in 2024 and 6.0 in 2025<sup class="ref">[<a href="#s11">11</a>]</sup>.</p>
+        <p class="implic">Eastern service for the whole festive season is being set this week, and Kolkata's sale-week strain is compounding year on year. It is structural; the weather only adds to it.</p>
+      </div></li>
+      <li><div>
+        <div class="ins-head"><h3>The Gulf route stays shut, and westbound space is being bought up by sea and air.</h3><span class="conf-chip">High confidence</span></div>
+        <p>Shipping monitors logged five incidents near Hormuz on Monday, four of them tanker attacks; IMF PortWatch's latest published count shows one transit on 27 September, against a pre-crisis average of 85 a day; Brent is about $101<sup class="ref">[<a href="#s18">18</a>]</sup>. India–Middle East container rates rose 25–40% from late August<sup class="ref">[<a href="#s19">19</a>]</sup>. International air freight through Indian airports was 15.5% above last year in August and 14% above it from April to August<sup class="ref">[<a href="#s21">21</a>]</sup>, and India–US air tonnage is running 15% above last year<sup class="ref">[<a href="#s22">22</a>]</sup>.</p>
+        <p class="implic">Peak-season space to Europe and the US will be rationed by price. Early commitment risks a rate that later softens; waiting risks no space for Diwali-season orders.</p>
+      </div></li>
+      <li><div>
+        <div class="ins-head"><h3>Diesel has started to rise, at the private pumps first.</h3><span class="conf-chip">Medium confidence</span></div>
+        <p>Nayara raised diesel by ₹3 a litre at its 7,108 outlets from 3 October<sup class="ref">[<a href="#s24">24</a>]</sup>, its second rise this year<sup class="ref">[<a href="#s25">25</a>]</sup>. The state retailers, which run over 90% of India's pumps, have held prices, while ICRA estimated they lost about ₹9 a litre on diesel in September<sup class="ref">[<a href="#s24">24</a>]</sup>; Delhi diesel is ₹95.20 today<sup class="ref">[<a href="#s23">23</a>]</sup>. The Centre's excise on diesel has been nil since March, so it has no duty left to cut<sup class="ref">[<a href="#s26">26</a>]</sup>. In May, more than 68 transport unions in Delhi-NCR struck for three days, citing fuel costs among their demands<sup class="ref">[<a href="#s27">27</a>]</sup>.</p>
+        <p class="implic">A state-retailer rise during the festive weeks is now a real possibility, and transport unions have shown they will strike over fuel costs. The exposure sits in contracts with automatic diesel pass-through.</p>
+      </div></li>
+      <li><div>
+        <div class="ins-head"><h3>Rail is the only mode adding capacity into the peak.</h3><span class="conf-chip">Medium confidence</span></div>
+        <p>The Western freight corridor has run from Dadri to JNPA since 8 September, with double-stack trains to the port<sup class="ref">[<a href="#s28">28</a>]</sup>. Rail loading was 5.4% up in August, domestic containers 9.2%<sup class="ref">[<a href="#s29">29</a>]</sup>, yet only about 14% of JNPA's boxes went by rail in FY26<sup class="ref">[<a href="#s30">30</a>]</sup>. Road capacity into Delhi tightens instead: at GRAP Stage III, BS-IV and older diesel light and medium goods vehicles from outside Delhi are restricted, and the exemption for BS-IV vehicles carrying essential goods ends on 31 October<sup class="ref">[<a href="#s31">31</a>]</sup>.</p>
+        <p class="implic">Freight moved to the corridor now is capacity secured before late October, when Delhi's rules take older trucks out of the pool and every shipper is buying road space at once.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <aside class="rail" aria-labelledby="cal-h">
+    <h2 id="cal-h">Watch calendar</h2>
+    <p class="key">Red dates stop or surge freight.</p>
+    <ul class="cal">
+      <li class="today"><span class="d">Tue 6</span><span>Heavy rain in Tamil Nadu, Kerala, south Karnataka · strong winds on the Andhra coast to 8<sup class="ref">[<a href="#s1">1</a>]</sup></span></li>
+      <li><span class="d">Wed 7</span><span>NH-10 night closures begin (to 15 Oct)<sup class="ref">[<a href="#s4">4</a>]</sup> · Keonjhar protest<sup class="ref">[<a href="#s7">7</a>]</sup></span></li>
+      <li><span class="d">7–9</span><span>Widespread rain in Sikkim and the Bengal hills<sup class="ref">[<a href="#s1">1</a>]</sup></span></li>
+      <li class="hot"><span class="d">Thu 8</span><span>Amazon sale and Flipkart early access open<sup class="ref">[<a href="#s13">13</a>,<a href="#s14">14</a>]</sup> · Odisha bandh<sup class="ref">[<a href="#s7">7</a>]</sup></span></li>
+      <li class="hot"><span class="d">Fri 9</span><span>Flipkart Big Billion Days opens<sup class="ref">[<a href="#s14">14</a>]</sup></span></li>
+      <li class="hot"><span class="d">Sat 10</span><span>Mahalaya: goods vehicles barred from Kolkata 3 am–10 pm<sup class="ref">[<a href="#s6">6</a>]</sup></span></li>
+      <li><span class="d">Sun 11</span><span>Navratri begins<sup class="ref">[<a href="#s17">17</a>]</sup></span></li>
+      <li><span class="d">12–13</span><span>Circulation over the Andaman Sea, then a low expected; low chance of a depression<sup class="ref">[<a href="#s3">3</a>]</sup></span></li>
+      <li><span class="d">13–19</span><span>Kolkata Puja curbs: port trucks noon–4 pm only<sup class="ref">[<a href="#s6">6</a>]</sup></span></li>
+      <li><span class="d">20–24</span><span>Dussehra (20)<sup class="ref">[<a href="#s17">17</a>]</sup> · Kolkata immersions, goods vehicles barred<sup class="ref">[<a href="#s6">6</a>]</sup></span></li>
+      <li><span class="d">26–27</span><span>Lakshmi Puja immersions, Kolkata goods vehicles barred<sup class="ref">[<a href="#s6">6</a>]</sup></span></li>
+      <li><span class="d">26 Oct–5 Nov</span><span>NH-10 night closures, second phase<sup class="ref">[<a href="#s4">4</a>]</sup></span></li>
+      <li><span class="d">Sat 31</span><span>Delhi essential-goods exemption for BS-IV goods vehicles ends<sup class="ref">[<a href="#s31">31</a>]</sup></span></li>
+      <li><span class="d">Sun 8 Nov</span><span>Diwali<sup class="ref">[<a href="#s12">12</a>]</sup></span></li>
+    </ul>
+  </aside>
+</div>
+
+<section aria-labelledby="chk-h">
+  <h2 id="chk-h">Calls to check next week</h2>
+  <ol class="checks">
+    <li>Odisha's bandh goes ahead on 8th October with highway and mining-belt blockades<sup class="ref">[<a href="#s7">7</a>]</sup>.</li>
+    <li>State retailers hold Delhi diesel at ₹95.20 until at least 13th October<sup class="ref">[<a href="#s23">23</a>]</sup>.</li>
+    <li>The Bay low forms around 13th October and does not become a depression by 15th October<sup class="ref">[<a href="#s3">3</a>]</sup>.</li>
+  </ol>
+</section>
+
+<section class="method" aria-labelledby="m-h">
+  <h2 id="m-h">How this bulletin is rated</h2>
+  <p>Ratings are editorial judgement on the likelihood of on-time delivery, built only from public sources: IMD forecasts, news on bandhs and road closures, police traffic plans, sale calendars, shipping trade press, fuel prices and official freight data. Air freight appears only with measured figures behind it: AAI's monthly airport freight and WorldACD's weekly market data. Every factual claim carries a numbered reference to the Sources list; anything that could not be checked against a source is left out.</p>
+  <p>Every rating is against what the seasonal calendar says is normal for the week. Green: running as the season normally does, which in sale or festival weeks can still be hard. Amber: a disruption beyond the season that slows freight. Red: one that stops freight across a state or a major corridor. A Red lane downgrades the hubs at both ends. Disruption is carried forward: a hub or lane stays Amber for about two days after its cause clears, and longer after a Red. Exim flows also carry a cost rating, since delay hurts manufacturers and exporters far more than parcels.</p>
+  <p>Decisions this week are the few calls where missing the moment does damage that cannot be recovered within the season: three to five, soonest first, each stating the situation, whose decision it is and the event it must be made before. A view is given only where today's facts support one; each business knows its own network. Calls to check next week are scored in the next edition. Insights are listed by priority, then confidence. Confidence is High when the facts are dated and come from primary or measured sources, Medium when they rest on a proxy or a forecast. The cap, the order and the choice of calls are the owner's judgement.</p>
+  <p>Each metro's normal sale weeks come from past years (full table on the seasonal calendar), measured by Google searches for the Delhivery, Ekart, Blue Dart and DTDC helplines: these count customers chasing parcels, not late parcels or network load. Each city is read from its state (Karnataka for Bengaluru, Telangana for Hyderabad, West Bengal for Kolkata, Maharashtra for Mumbai, Tamil Nadu for Chennai); the sale opens on the day Amazon's festival opens to everyone; the rise is the busiest week in the four weeks after opening against a normal week in the eight before. These figures describe how hard a metro's season normally is; they set the baseline, not the colour.</p>
+</section>
+
+<section class="sources" aria-labelledby="src-h">
+  <h2 id="src-h">Sources</h2>
+  <ol>
+    <li id="s1"><a href="https://mausam.imd.gov.in/backend/assets/aiwfb_pdf/928ed9696f987fb77e4db1621385e7a6.pdf">IMD: all-India forecast bulletin, 6 Oct 8 am</a></li>
+    <li id="s2"><a href="https://www.etvbharat.com/en/bharat/imd-alert-rain-thunderstorms-likely-across-20-states-till-october-10-india-weather-updates-enn26100501295">ETV Bharat: IMD alerts 5–10 Oct (Northeast heavy rain)</a></li>
+    <li id="s3"><a href="https://www.orissapost.com/thunderstorm-to-hit-odisha-oct-7-8-lopar-oct-13/">OrissaPOST: IMD on Odisha storms and the mid-October low, 5 Oct</a></li>
+    <li id="s4"><a href="https://theprint.in/india/night-traffic-curbs-on-nh-10-from-oct-7-for-slope-protection-work/3061939/">ThePrint: NH-10 night curbs (NHIDCL order), 5 Oct</a></li>
+    <li id="s5"><a href="https://jkadworld.com/jk-news-today/jammu-srinagar-highway-traffic-advisory-6th-oct-2026nh-44-ssg-road-travel-guidelines/">JK Ad World: NH-44 advisory, 6 Oct</a></li>
+    <li id="s6"><a href="https://www.millenniumpost.in/bengal/kolkata-police-announce-road-closures-vehicle-curbs-for-puja-678555">Millennium Post: Kolkata Police Puja traffic plan, 5 Oct</a></li>
+    <li id="s7"><a href="https://www.etvbharat.com/en/state/india-bloc-announces-odisha-bandh-on-october-8-over-new-mining-law-and-other-issues-enn26092904001">ETV Bharat: INDIA bloc Odisha bandh on 8 Oct, 29 Sep</a></li>
+    <li id="s8"><a href="https://www.orissapost.com/congress-announces-odisha-bandh-over-mmdr-act/">OrissaPOST: Congress mining blockade after Dussehra, 23 Sep</a></li>
+    <li id="s9"><a href="https://www.tomtom.com/traffic-index/kolkata-traffic/">TomTom Traffic Index: city congestion against usual (INB daily log)</a></li>
+    <li id="s10"><a href="https://www.jnport.gov.in/uploads/content_manager/Daily_Status_20261005111844.pdf">JNPA: daily status report, 5 Oct</a></li>
+    <li id="s11"><a href="https://trends.google.com/trends/explore?date=2021-10-01%202026-10-04&geo=IN-KA&q=Delhivery%20customer%20care,Ekart%20customer%20care,Blue%20Dart%20customer%20care,DTDC%20customer%20care">Google Trends: carrier helpline searches by state, 2021–2026</a></li>
+    <li id="s12"><a href="https://thefavrito.github.io/seasons/">INB seasonal calendar: October (sale-season table, festival dates)</a></li>
+    <li id="s13"><a href="https://www.aboutamazon.in/news/retail/amazon-great-indian-festival-2026-dates">Amazon India: Great Indian Festival dates</a></li>
+    <li id="s14"><a href="https://www.businesstoday.in/technology/news/story/flipkart-big-billion-days-2026-sale-starts-october-9-early-access-and-offers-revealed-555842-2026-09-16">Business Today: Big Billion Days and early access, 16 Sep</a></li>
+    <li id="s15"><a href="https://www.businesstoday.in/india/story/flipkart-expands-ekart-network-by-900-hubs-adds-750-pin-codes-ahead-of-festive-sale-558791-2026-09-30">Business Today: Ekart adds 900+ festive hubs, 30 Sep</a></li>
+    <li id="s16"><a href="https://www.indianretailer.com/news/flipkart-adds-25-lakh-jobs-expands-logistics-network-ahead-big-billion-days">Indian Retailer: Flipkart festive jobs, 24 Sep</a></li>
+    <li id="s17"><a href="https://www.indiatvnews.com/lifestyle/spirituality/navratri-2026-dates-check-full-shardiya-navratri-calendar-from-ghatasthapana-to-dussehra-2026-09-21-1054798">India TV: Navratri and Dussehra 2026 dates</a></li>
+    <li id="s18"><a href="https://straits.live/briefs/2026-10-06">Straits.live: Strait of Hormuz brief, 6 Oct</a></li>
+    <li id="s19"><a href="https://theloadstar.com/india-middle-east-spot-prices-soar-as-ports-struggle-and-liners-cash-in/">The Loadstar: India–Middle East rates, 25 Sep</a></li>
+    <li id="s20"><a href="https://www.aircargonews.net/supply-chains/2026/10/ocean-congestion-and-tariffs-could-see-more-peak-air-volumes/">Air Cargo News: India air and ocean space into peak, 1 Oct</a></li>
+    <li id="s21"><a href="https://www.aai.aero/sites/default/files/traffic-news/Aug2k26Annex_4.pdf">AAI: international freight by airport, August 2026</a></li>
+    <li id="s22"><a href="https://aircargoweek.com/pricing-and-capacity-hold-steady-as-traffic-slows/">Air Cargo Week: WorldACD market data, week to 5 Oct</a></li>
+    <li id="s23"><a href="https://www.businesstoday.in/india/story/petrol-diesel-prices-today-october-6-check-latest-rates-in-delhi-mumbai-chennai-kolkata-more-559700-2026-10-06">Business Today: fuel prices, 6 Oct</a></li>
+    <li id="s24"><a href="https://www.businesstoday.in/india/story/nayara-energy-hikes-fuel-prices-petrol-up-rs-5-diesel-rs-3-amid-crude-retail-fuel-losses-559316-2026-10-03">Business Today: Nayara raises prices; ICRA on retailer losses, 3 Oct</a></li>
+    <li id="s25"><a href="https://www.motorbeam.com/nayara-energy-petrol-diesel-price-hike-october-2026/">Motorbeam: Nayara's second rise this year</a></li>
+    <li id="s26"><a href="https://moneylife.in/article/petrol-excise-duty-down-to-rs3-diesel-nil-no-change-in-retail-prices-as-govt-aims-to-cut-omc-losses/80059.html">Moneylife: diesel excise cut to nil, 26 Mar</a></li>
+    <li id="s27"><a href="https://www.freepressjournal.in/india/chakka-jam-in-delhi-ncr-transport-unions-launch-3-day-strike-over-fare-hike-demand-rising-fuel-costs-congestion-charge-rollback-video">Free Press Journal: Delhi-NCR transport strike, 21 May</a></li>
+    <li id="s28"><a href="https://www.maritimegateway.com/western-freight-corridor/">Maritime Gateway: Western DFC complete, 8 Sep</a></li>
+    <li id="s29"><a href="https://ddindia.co.in/2026/09/indian-railways-records-5-4-growth-in-freight-loading-in-august-2026/">DD India: August rail loading</a></li>
+    <li id="s30"><a href="https://jmflresearch.com/Download?DownloadType=show&ReportId=22420">JM Financial: JNPA rail share, FY26</a></li>
+    <li id="s31"><a href="https://www.india.com/news/india/delhi-ncr-grap-rules-get-tougher-old-trucks-bs-iv-vehicles-no-longer-exempted-check-details-caqm-delhi-pollution-measures-8531396/">India.com: revised GRAP for goods vehicles, 30 Sep</a></li>
+  </ol>
+</section>
+
+<p class="foot">Compiled from public sources only. Ratings are editorial judgement on the likelihood of on-time delivery, not measured service levels.</p>
+</div>
+
+<nav class="sitenav" aria-label="Site"><a href="/">Latest bulletin</a><a href="/archive/">All editions</a><a href="/seasons/">Seasonal calendar</a><a href="/network/">Reference network</a></nav>
+</body></html>

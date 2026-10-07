@@ -4,7 +4,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one-page control-room bulletin — masthead, decisions (from Edition 001: one numbered line each), regional board, map beside lanes to watch, facility signals, exim exposure, numbered insights beside watch rail. Edition 001's end-of-page call and Edition 002's dark decisions block keep their rules below. */
+/* Layout (pilots): one-page control-room bulletin - masthead, decisions, regional board, map beside lanes to watch, facility signals, exim exposure, numbered insights beside watch rail. Editions from 001: the four-column A3 sheet at the end of this file. Edition 001's end-of-page call and Edition 002's dark decisions block keep their rules below. */
 :root{
   --bg:#F3F5F4; --surface:#FFFFFF; --ink:#13201B; --muted:#5A6A63; --line:#D6DEDA; --faint:#E7ECE9;
   --accent:#0B6B4C; --accent-ink:#FFFFFF;
@@ -156,6 +156,88 @@ td.st{white-space:nowrap}
   .ins>li{grid-template-columns:26px minmax(0,1fr);gap:0 10px}
   .tag{flex-direction:row;gap:12px;padding-top:0}
   .thesis{font-size:16px}
+}
+/* From Edition 001: one landscape A3 sheet in four columns (owner, 6 Oct 2026). The masthead runs across
+   the top; .cols holds 1) the regional outlook, 2) the map and roads, 3) national insight cards (with the
+   flows where a delay costs more), 4) decisions, dates, calls and method, side by side on wide screens and
+   in print, one under another on phones. Sources run across the foot. make build prints bulletin.pdf and
+   fails if it runs past one A3 page (engine/pdf.py). The A3 @page rule is written by render_sheet, so the
+   seasonal calendar and network pages, which share this file, print as before. */
+.sheet{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.sheet .mast-l,.sheet .mast-r{display:flex;flex-direction:column;gap:12px;min-width:0}
+.cols{display:flex;flex-direction:column;gap:26px}
+.col{min-width:0;display:flex;flex-direction:column;gap:12px}
+.col>section{display:flex;flex-direction:column}
+.sheet .key{margin:0 0 8px}
+.sheet .zones{grid-template-columns:minmax(0,1fr)}
+.sheet .mapbox{margin-bottom:10px}
+.rows{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line)}
+.row{padding:8px 12px;border-top:1px solid var(--faint);border-left:3px solid var(--rc,var(--line))}
+.row:first-child{border-top:0}
+.row.g{--rc:var(--g)} .row.a{--rc:var(--a)} .row.r{--rc:var(--r)}
+.row-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.row h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:15px;line-height:1.2;margin:0}
+.row small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
+.row p{margin:3px 0 0;font-size:14px}
+/* insight cards: numbered, a status-coloured top border when the card carries a status (else accent) */
+.cards{list-style:none;margin:0;padding:0;counter-reset:ins;display:flex;flex-direction:column;gap:12px}
+.card{counter-increment:ins;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--cc,var(--accent));padding:12px 16px 14px;display:flex;flex-direction:column;gap:6px}
+.card.g{--cc:var(--g)} .card.a{--cc:var(--a)} .card.r{--cc:var(--r)}
+.card h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;line-height:1.2;margin:0;text-wrap:balance}
+.card h3::before{content:counter(ins) ". ";color:var(--accent)}
+.card small{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:-4px}
+.card p{margin:0}
+.card .implic{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-weight:500}
+.sheet .col .rail{padding:12px 14px 4px}
+@media (min-width:1280px), print{
+  body{font-size:10.5px;line-height:1.32;padding-block:16px}
+  .sheet{max-width:1540px;gap:8px}
+  .sheet .mast{display:grid;grid-template-columns:minmax(0,38fr) minmax(0,62fr);gap:6px 28px;align-items:end;padding-bottom:9px;border-bottom-width:2px}
+  .sheet .mast-l,.sheet .mast-r{gap:6px}
+  .sheet h1{font-size:42px}
+  .sheet .thesis{font-size:13px;line-height:1.42;max-width:none}
+  .sheet .changes{max-width:none;font-size:11px;line-height:1.4}
+  .cols{display:grid;grid-template-columns:minmax(0,17fr) minmax(0,19fr) minmax(0,35fr) minmax(0,29fr);gap:0 16px;align-items:start}
+  .col+.col{border-left:1px solid var(--faint);padding-left:16px;margin-left:-0px}
+  .col{gap:9px}
+  .sheet h2{font-size:10.5px;margin-bottom:5px}
+  .sheet .zones{gap:6px}
+  .sheet .zone{padding:6px 9px 7px;gap:2px;border-top-width:3px}
+  .sheet .zone h3{font-size:15px}
+  .sheet .zone p{font-size:10.5px}
+  .sheet .zone .trend{font-size:9.5px}
+  .sheet .declist li{padding:6px 9px;grid-template-columns:16px minmax(0,1fr);font-size:11px}
+  .sheet .declist li::before{font-size:15px}
+  .sheet .mapbox{padding:4px;margin-bottom:6px}
+  .sheet .legend{font-size:8.5px;gap:1px 8px;padding:2px 2px 0}
+  .row{padding:5px 8px}
+  .row h3{font-size:12.5px}
+  .row small{font-size:8.5px}
+  .row p{font-size:10.5px;margin-top:2px}
+  .sheet .cost{font-size:9px}
+  .sheet .key{font-size:10px;line-height:1.6;margin-bottom:4px}
+  .cards{gap:6px}
+  .card{padding:6px 9px 7px;gap:3px;border-top-width:3px}
+  .card h3{font-size:13.5px}
+  .card small{font-size:8.5px;margin-top:-2px}
+  .sheet .card .pill{font-size:9px;padding:1px 6px}
+  .card p{font-size:10.5px}
+  .card .implic{padding-left:8px}
+  .sheet .col .rail{padding:7px 9px 2px}
+  .sheet .cal li{grid-template-columns:52px minmax(0,1fr);gap:6px;padding-block:3px;font-size:10px}
+  .sheet .cal .d{font-size:9px}
+  .sheet .checks{padding-left:15px;gap:3px;font-size:10.5px}
+  .sheet .method{display:block;font-size:9.5px;line-height:1.35}
+  .sheet .method p{margin:0 0 3px}
+  .sheet .sources{font-size:8px;line-height:1.2;border-top:1px solid var(--line);padding-top:5px}
+  .sheet .sources ol{columns:6;column-gap:12px;padding-left:16px}
+  .sheet .sources li{margin-bottom:1px}
+  .sheet .foot{font-size:8.5px;padding-top:2px;margin:0;border-top:0}
+}
+@media print{
+  body{padding:0;background:var(--surface)}
+  .sheet{max-width:none}
+  a{text-decoration:none}
 }
 </style>
 <style>.sitenav{max-width:1100px;margin:28px auto 0;padding:14px 16px 0;border-top:1px solid #D6DEDA;display:flex;flex-wrap:wrap;gap:8px 20px;font:500 13px "IBM Plex Mono",ui-monospace,monospace}.sitenav a{color:#0B6B4C}</style></head><body>

@@ -30,13 +30,15 @@ h3{font-family:var(--display);font-stretch:82%;font-weight:800;margin:0;line-hei
 .shield{background:var(--accent);color:var(--accent-ink);font-family:var(--display);font-weight:800;font-size:1.05em;padding:.1em .5em;border-radius:3px;letter-spacing:.06em}
 .key{font-family:var(--mono);font-size:.72em;color:var(--muted);line-height:1.45}
 
-/* screen: the pages one after another; the flow in two columns */
+/* screen: the pages one after another; pages 2-3 as one column in reading order. No CSS columns on
+   screen: Safari overlaps flex boxes inside multi-column layouts (owner saw text drawn over text, 7 Oct 2026).
+   The four-column spread is print only (.sheet, engine/render_a4.js). */
 .a4{max-width:860px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:20px}
 .page,.flow,.srcs{background:var(--surface);border:1px solid var(--line);padding:28px;font-size:15px}
 .page{display:flex;flex-direction:column;gap:1.1em}
-.flow{columns:2;column-gap:1.4em}
-.blk{break-inside:avoid;margin-bottom:1em;display:flex;flex-direction:column}
-.blk>.card,.blk>.lane{flex:1 0 auto}
+.flow{display:flex;flex-direction:column;gap:1em}
+.flow>.blk{max-width:680px;width:100%;margin:0 auto}
+html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
 
 /* masthead */
 .mast{display:flex;flex-direction:column;gap:.6em;border-bottom:3px solid var(--ink);padding-bottom:.9em}
@@ -89,7 +91,6 @@ h3{font-family:var(--display);font-stretch:82%;font-weight:800;margin:0;line-hei
 /* lanes to watch: compact cards, as on the A3 sheet */
 .lane{border:1px solid var(--line);border-left:4px solid var(--lc);padding:.45em .7em}
 .lane.g{--lc:var(--g)} .lane.a{--lc:var(--a)} .lane.r{--lc:var(--r)}
-.blk.roads{margin-bottom:.45em}
 .lane-h{display:flex;justify-content:space-between;align-items:center;gap:.5em}
 .lane-h b{font-family:var(--display);font-stretch:85%;font-weight:800;font-size:1.05em}
 .roads .sub{font-family:var(--mono);font-size:.7em;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin:.1em 0 .2em}
@@ -146,12 +147,13 @@ h3{font-family:var(--display);font-stretch:82%;font-weight:800;margin:0;line-hei
 .method p{font-size:.8em;line-height:1.45;color:var(--muted)}
 .method .foot{font-family:var(--mono);font-size:.72em;border-top:1px solid var(--line);padding-top:.5em}
 .srcs h2{margin-bottom:.4em}
-.srcs ol{margin:0;padding-left:1.6em;columns:3;column-gap:1.2em;font-size:.8em;line-height:1.35;color:var(--muted)}
+.srcs ol{margin:0;padding-left:1.6em;columns:3;column-gap:2.8em;font-size:.8em;line-height:1.35;color:var(--muted)}
 .srcs li{break-inside:avoid}
 .srcs a{color:var(--muted);text-decoration:none}
 
 /* phones: one column, same order */
 @media (max-width:640px){
+  .flow>.blk{max-width:none}
   .a4{padding:0;gap:0}
   .page,.flow,.srcs{border:0;border-bottom:1px solid var(--line);padding:20px 16px}
   h1{font-size:2.5em}
@@ -247,6 +249,29 @@ h3{font-family:var(--display);font-stretch:82%;font-weight:800;margin:0;line-hei
 // Each part's type is set as large as fits, so the columns run to the foot and nothing ends in a gap.
 // The result goes in data-layout for the build to check.
 (function () {
+  // a4.html?check (build only): on screen, find any two pieces of text drawn over each other
+  if (/[?&]check\b/.test(location.search)) {
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+      const els = [...document.querySelectorAll('p, li, h1, h2, h3, .pill, .tl-l, figcaption, .b-row, .y-row, .ms-c, .lane-h b')]
+        .filter(el => el.offsetParent !== null);
+      const rs = els.map(el => el.getBoundingClientRect());
+      const hits = [];
+      for (let i = 0; i < els.length; i++) for (let k = i + 1; k < els.length; k++) {
+        if (els[i].contains(els[k]) || els[k].contains(els[i])) continue;
+        const a = rs[i], b = rs[k];
+        const w = Math.min(a.right, b.right) - Math.max(a.left, b.left), h = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+        if (w > 2 && h > 2) hits.push(els[i].textContent.trim().slice(0, 40) + ' | ' + els[k].textContent.trim().slice(0, 40));
+      }
+      // list numbers sit outside their item: a numbered list in columns needs a gap wider than its numbers
+      document.querySelectorAll('ol').forEach(ol => {
+        const cs = getComputedStyle(ol);
+        if (cs.columnCount !== 'auto' && +cs.columnCount > 1 && parseFloat(cs.columnGap) < 2 * parseFloat(cs.fontSize))
+          hits.push('numbered list in columns with too narrow a gap: ' + ol.textContent.trim().slice(0, 40));
+      });
+      document.documentElement.dataset.overlap = JSON.stringify(hits.slice(0, 10));
+    });
+    return;
+  }
   if (!/[?&]print\b/.test(location.search)) return;
   document.documentElement.classList.add('sheet');
   const STEPS = [];

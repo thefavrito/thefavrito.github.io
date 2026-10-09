@@ -18,7 +18,10 @@
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.45}
 a{color:var(--accent)}
 p{margin:0}
-h1{font-family:var(--display);font-stretch:78%;font-weight:800;font-size:3em;line-height:.95;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1{font-family:var(--display);font-stretch:88%;font-weight:800;font-size:3em;line-height:1;margin:0;letter-spacing:0;text-wrap:balance}
+/* every line of text is justified, on screen and in print (owner, 9 Oct 2026: "all the text in the bulletin has to be
+   justified, same width, screen adjusted"); hyphenation keeps narrow lines from opening gaps. Checked by render_a4.js ?check */
+p,li,td{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 h2{font-family:var(--mono);font-weight:500;font-size:.78em;text-transform:uppercase;letter-spacing:.12em;margin:0 0 .6em;color:var(--muted)}
 h3{font-family:var(--display);font-stretch:82%;font-weight:800;margin:0;line-height:1.08}
 .ref{font-family:var(--mono);font-size:.62em;line-height:0;margin-left:1px}
@@ -51,7 +54,7 @@ html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
 .mast-top,.run{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4em 1em;font-family:var(--mono);font-size:.76em;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
 .mast-h{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6em}
 .mast-h .pill{font-size:.86em;padding:.3em .9em}
-.thesis{font-size:1.1em;line-height:1.45;text-wrap:pretty}
+.thesis{font-size:1.1em;line-height:1.45}
 .a4 .changes{margin:0;font-size:.86em;line-height:1.4;max-width:none;color:var(--muted);border-left:3px solid var(--line);padding-left:.7em}
 
 /* page 1 layouts (a4.json "p1"; owner, 8 Oct 2026) */
@@ -175,7 +178,16 @@ html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
 /* phones: one column, same order */
 @media (max-width:640px){
   .band,.mast-map{grid-template-columns:1fr !important}
-  .zt th{width:6em}
+  /* one width for everything (owner, 9 Oct 2026): each region's name and colour sit above its note, and cards and road
+     boxes drop their side borders and padding, so every line of text starts and ends at the same two edges */
+  .zt,.zt tbody,.zt tr,.zt th,.zt td{display:block;width:auto}
+  .zt tr{border-top:3px solid var(--zc);padding:.45em 0 .6em}
+  .zt tr:last-child{border-bottom:0}
+  .zt th{border-left:0;padding:0 0 .3em;display:flex;align-items:center;justify-content:space-between;gap:.5em}
+  .zt th h3{margin:0}
+  .zt td{padding:0}
+  .card{border-left:0;border-right:0;border-bottom:0;padding:.7em 0 0}
+  .lane{border:0;border-top:3px solid var(--lc);padding:.45em 0 0}
   .dates{grid-template-columns:1fr}
   .dt td{white-space:normal}
   .dt td.dt-w{white-space:nowrap;padding-right:.8em}  /* the date stays on one line; the label wraps (owner, 9 Oct 2026) */
@@ -275,6 +287,22 @@ html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
         const lh = parseFloat(getComputedStyle(td).lineHeight) || 1.4 * parseFloat(getComputedStyle(td).fontSize);
         if (td.getBoundingClientRect().height > 1.9 * lh + 8) hits.push('date wraps onto several lines: ' + td.textContent.trim());
       });
+      // all text justified, and on a phone every block runs the column's full width (owner, 9 Oct 2026: "same width,
+      // screen adjusted ... apply all the rules I have for formatting")
+      document.querySelectorAll('p, li, td').forEach(el => {
+        if (el.offsetParent !== null && el.textContent.trim() && getComputedStyle(el).textAlign !== 'justify')
+          hits.push('text not justified: ' + el.textContent.trim().slice(0, 40));
+      });
+      if (innerWidth <= 640) {
+        const col = document.querySelector('.mast').getBoundingClientRect();
+        document.querySelectorAll('.thesis, .zt td, .dates, .legend, .card > p, .card > .chart, .lane p, .ms-lead, .ms-all, .calls ol, .decs ol, .method, .srcs ol')
+          .forEach(el => {
+            if (el.offsetParent === null) return;
+            const r = el.getBoundingClientRect(), so = el.classList.contains('so');
+            if (Math.abs(r.right - col.right) > 2 || (!so && Math.abs(r.left - col.left) > 2))
+              hits.push(`narrower than the column on a phone (${Math.round(r.width)} of ${Math.round(col.width)} px): ` + el.textContent.trim().slice(0, 40));
+          });
+      }
       document.documentElement.dataset.overlap = JSON.stringify(hits.slice(0, 10));
     });
     return;

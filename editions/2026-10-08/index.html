@@ -167,6 +167,7 @@ html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
 .method p{font-size:.8em;line-height:1.45;color:var(--muted)}
 .method .foot{font-family:var(--mono);font-size:.72em;border-top:1px solid var(--line);padding-top:.5em}
 .srcs h2{margin-bottom:.4em}
+.srcs .method .foot{border-top:0;padding-top:0;margin-bottom:.8em}  /* the footer under the Sources heading (owner, 9 Oct 2026) */
 .srcs ol{margin:0;padding-left:1.6em;columns:3;column-gap:2.8em;font-size:.8em;line-height:1.35;color:var(--muted)}
 .srcs li{break-inside:avoid}
 .srcs a{color:var(--muted);text-decoration:none}
@@ -177,6 +178,7 @@ html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
   .zt th{width:6em}
   .dates{grid-template-columns:1fr}
   .dt td{white-space:normal}
+  .dt td.dt-w{white-space:nowrap;padding-right:.8em}  /* the date stays on one line; the label wraps (owner, 9 Oct 2026) */
   .flow>.blk{max-width:none}
   .a4{padding:0;gap:0}
 .pref .srcs{border:0;padding:0;background:none}
@@ -266,6 +268,12 @@ html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
         const cs = getComputedStyle(ol);
         if (cs.columnCount !== 'auto' && +cs.columnCount > 1 && parseFloat(cs.columnGap) < 2 * parseFloat(cs.fontSize))
           hits.push('numbered list in columns with too narrow a gap: ' + ol.textContent.trim().slice(0, 40));
+      });
+      // a date in the dates to watch never wraps (owner, 9 Oct 2026: on her phone the dates broke one word to a line)
+      document.querySelectorAll('.dt-w').forEach(td => {
+        if (td.offsetParent === null) return;
+        const lh = parseFloat(getComputedStyle(td).lineHeight) || 1.4 * parseFloat(getComputedStyle(td).fontSize);
+        if (td.getBoundingClientRect().height > 1.9 * lh + 8) hits.push('date wraps onto several lines: ' + td.textContent.trim());
       });
       document.documentElement.dataset.overlap = JSON.stringify(hits.slice(0, 10));
     });

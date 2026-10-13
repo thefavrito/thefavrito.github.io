@@ -262,6 +262,13 @@ td.st{white-space:nowrap}
   .sheet{max-width:none}
   a{text-decoration:none}
 }
+/* phones (owner, 9 Oct 2026: her formatting rules hold on every page): region cards, insight cards, the road list and
+   the map drop their side borders and padding, so justified text gets the full column and no gaps open between words */
+@media (max-width:520px){
+  .sheet .zone,.sheet .card,.sheet .rows,.sheet .mapbox{border-left:0;border-right:0;padding-left:0;padding-right:0;background:transparent}
+  .sheet .rows{border-top:0;border-bottom:0}
+  .sheet .row{padding-left:10px;padding-right:0}
+}
 </style>
 <style>.sitenav{max-width:1100px;margin:28px auto 0;padding:14px 16px 0;border-top:1px solid #D6DEDA;display:flex;flex-wrap:wrap;gap:8px 20px;font:500 13px "IBM Plex Mono",ui-monospace,monospace}.sitenav a{color:#0B6B4C}</style></head><body>
 <style>

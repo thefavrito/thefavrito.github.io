@@ -237,6 +237,26 @@ td.st{white-space:nowrap}
   .sheet .sources li{margin-bottom:1px}
   .sheet .foot{font-size:8.5px;padding-top:2px;margin:0;border-top:0}
 }
+/* Wide screens and print (owner, 13 Oct 2026: "Why does the A3 have so much white space?"): the four columns are one
+   newspaper flow in the page's order, the map heading the first column (moved there by a script in render_sheet), so
+   a short section never leaves a hole. On screen the columns balance; in print engine/pdf.py fills them to the foot
+   and scales the type to fit. */
+@media (min-width:1280px), print{
+  .sheet .cols{display:block;column-count:4;column-gap:20px;column-rule:1px solid var(--faint)}
+  .sheet .col,.sheet .col>section,.sheet .zones,.sheet .cards{display:block}
+  .sheet .col+.col{border-left:0;padding-left:0}
+  .sheet .col>section,.sheet .col+.col{margin-top:10px}
+  .sheet .cols>.col:first-child{margin-top:0}
+  .sheet .zone,.sheet .card{display:block;margin-bottom:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .sheet .zone>*+*,.sheet .card>*+*{margin-top:3px}
+  .sheet .card small{display:block;margin-top:1px}
+  .sheet .row{-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .sheet h2,.sheet h3,.sheet .zone-head,.sheet .row-head,.sheet small{break-after:avoid}
+  .sheet .mapbox,.sheet .cal li,.sheet .declist li,.sheet .checks li{break-inside:avoid}
+  .sheet p{orphans:2;widows:2}
+  .sheet h1,.sheet h2,.sheet h3,.sheet .sources li{text-align:left}
+  .sheet .cols>.mapbox{margin:0 0 10px}
+}
 @media print{
   body{padding:0;background:var(--surface)}
   .sheet{max-width:none}

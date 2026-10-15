@@ -223,7 +223,7 @@ html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
 .sheet .strip .blk{display:block;margin:0 0 .8em;break-inside:auto}
 .sheet .strip .blk.roads{margin-bottom:.45em}
 .sheet .strip .blk.roads,.sheet .strip .blk.measured{break-inside:avoid}
-.sheet .strip .card{display:block;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.sheet .strip .card{display:block;break-inside:avoid}  /* a card never splits across two columns (owner, 15 Oct 2026) */
 .sheet .strip .card>*+*{margin-top:.45em}
 .sheet .strip .card h3,.sheet .strip .card .tags,.sheet .strip .card .route-l,.sheet .strip .chart,.sheet .strip .so,
 .sheet .lane,.sheet .calls li,.sheet .srcs li{break-inside:avoid}
@@ -261,7 +261,7 @@ html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
 <script>// Print layout for the A4 edition (engine/render_a4.py), run only for a4.html?print.
 // Page 1 is fixed: masthead, regions and map, every decision, dates. Then the why, in reading order (insights,
 // what was measured, calls) as two newspaper columns a page over one or two pages; a card may run on
-// into the next column, its border carried over, but a heading, chart or table never parts from its text.
+// into the next column? No: from 15 Oct 2026 a card never splits (owner); a heading, chart or table never parts from its text.
 // Each part's type is set as large as fits, so the columns run to the foot and nothing ends in a gap.
 // The last page holds the method, footer and sources (owner, 8 Oct 2026).
 // The result goes in data-layout for the build to check.
@@ -434,9 +434,13 @@ html:not(.sheet) .blk.roads+.blk.roads{margin-top:-.55em}
     const refFits = ref.scrollHeight <= ref.clientHeight + 1;
 
     // white at the foot, in mm, for the build to check: page 1's two board columns, and the columns of the why
+    // a card, region or road split across two columns (owner, 15 Oct 2026: check for "cards splitting between two columns")
+    const split = [...a4.querySelectorAll('.p1 .zone, #flow .card, #flow .lane')]
+      .filter(el => new Set([...el.getClientRects()].filter(r => r.height > 1).map(r => Math.round(r.left))).size > 1)
+      .map(el => (el.querySelector('h3, b, .zone-n') || el).textContent.trim().slice(0, 50));
     const mm = px => Math.round(px / 3.7795);
     a4.dataset.layout = JSON.stringify({ page1_fits: s1 !== null, flow_fits: s !== null, ref_fits: refFits, pages: n + 2, flow_pages: n,
-      scale_p1: s1, scale: s, gap_p1_mm: mm(p1Gap()), gap_mm: s === null ? null : mm(worstGap()) });
+      scale_p1: s1, scale: s, gap_p1_mm: mm(p1Gap()), gap_mm: s === null ? null : mm(worstGap()), split });
   }
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(run);
 })();

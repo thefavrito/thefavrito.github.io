@@ -247,7 +247,7 @@ td.st{white-space:nowrap}
   .sheet .col+.col{border-left:0;padding-left:0}
   .sheet .col>section,.sheet .col+.col{margin-top:10px}
   .sheet .cols>.col:first-child{margin-top:0}
-  .sheet .zone,.sheet .card{display:block;margin-bottom:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .sheet .zone,.sheet .card{display:block;margin-bottom:6px;break-inside:avoid}  /* never split across columns (owner, 15 Oct 2026) */
   .sheet .zone>*+*,.sheet .card>*+*{margin-top:3px}
   .sheet .card small{display:block;margin-top:1px}
   .sheet .row{-webkit-box-decoration-break:clone;box-decoration-break:clone}

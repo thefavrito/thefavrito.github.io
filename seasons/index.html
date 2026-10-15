@@ -338,7 +338,12 @@ td.when small b{font-weight:500;color:var(--ink)}
 .caveats{margin:0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:6px;max-width:84ch}
 @media (max-width:900px){.months{grid-template-columns:repeat(4,minmax(0,1fr))}.sources ol{columns:2}}
 @media (max-width:620px){.months{grid-template-columns:repeat(2,minmax(0,1fr))}.notes2,.sources ol{columns:1}
-  .gl td,.gl th{padding:4px 3px}.gl td.ix{font-size:10.5px}.gl td.name{min-width:104px;font-size:12px}
+  /* the year table fits a phone screen, no sideways swipe (owner, 15 Oct 2026: phone views looked cut off) */
+  .gl td,.gl th{padding:3px 1px}.gl td.ix,.gl th.ix{font-size:9px;letter-spacing:-.02em}.yr td.ix small{font-size:7.5px}
+  .gl td.name{min-width:0;font-size:11px;hyphens:auto;-webkit-hyphens:auto}.gl td.name small{font-size:8.5px}
+  .sc thead{display:none}.sc,.sc tbody,.sc tr,.sc td{display:block;width:auto}
+  .sc tr{border-top:1px solid var(--line);padding:8px 10px}.sc td{padding:2px 0;border:0}
+  .sc td.name{min-width:0}.sc td.as{white-space:normal}
   .gl td.name,.gl th:first-child{position:sticky;left:0;background:var(--surface);z-index:1}.gl tr.grp td{position:static}}
 .mo{font:800 84px var(--display);font-stretch:80%;fill:var(--ink)}
 </style>

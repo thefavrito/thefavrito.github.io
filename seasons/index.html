@@ -271,7 +271,8 @@ td.st{white-space:nowrap}
 }
 .nb { white-space: nowrap; }
 </style>
-<style>.sitenav{max-width:1100px;margin:28px auto 0;padding:14px 16px 0;border-top:1px solid #D6DEDA;display:flex;flex-wrap:wrap;gap:8px 20px;font:500 13px "IBM Plex Mono",ui-monospace,monospace}.sitenav a{color:#0B6B4C}</style></head><body>
+<style>.sitenav{max-width:1100px;margin:28px auto 0;padding:14px 16px 0;border-top:1px solid #D6DEDA;display:flex;flex-wrap:wrap;gap:8px 20px;font:500 13px "IBM Plex Mono",ui-monospace,monospace;box-sizing:border-box}.sitenav.top{margin:0 auto 18px;max-width:100%;padding:14px 16px 12px;border-top:0;border-bottom:1px solid #D6DEDA}.sitenav a{color:#0B6B4C}</style></head><body><nav class="sitenav top" aria-label="Site"><a href="/about/">About</a><a href="/">Latest bulletin</a><a href="/archive/">All editions</a></nav>
+
 <style>
 :root{--b2c:var(--accent);--b2b:#3B5A86}
 .sw{display:inline-block;width:22px;height:8px;vertical-align:middle;margin-right:6px}
@@ -645,5 +646,6 @@ td.when small b{font-weight:500;color:var(--ink)}
 
 </div>
 
-<nav class="sitenav" aria-label="Site"><a href="/">Latest bulletin</a><a href="/archive/">All editions</a><a href="/seasons/">Seasonal calendar</a><a href="/network/">Reference network</a><a href="/about/">About</a><a href="https://www.linkedin.com/in/priyanka-bharadwaj/">Follow me on LinkedIn</a></nav>
+<nav class="sitenav" aria-label="More"><a href="/seasons/">Seasonal calendar</a><a href="/network/">Reference network</a></nav>
+<script>(function(){function fit(){var m=document.querySelector("header.mast");if(!m)return;var r=m.getBoundingClientRect();document.querySelectorAll(".sitenav").forEach(function(n){n.style.maxWidth=r.width+"px";n.style.paddingLeft=n.style.paddingRight="0";n.style.marginLeft="0";n.style.marginLeft=(r.left-n.getBoundingClientRect().left)+"px"})}addEventListener("load",fit);addEventListener("resize",fit)})()</script>
 </body></html>

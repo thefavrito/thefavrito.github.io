@@ -257,6 +257,24 @@ td.st{white-space:nowrap}
   .sheet h1,.sheet h2,.sheet h3,.sheet .sources li{text-align:left}
   .sheet .cols>.mapbox{margin:0 0 10px}
 }
+/* The brief (owner, 28 Oct 2026): the map, lanes and everywhere-else line beside the insights, at reading size.
+   Its printed form is the two A4 pages (engine/render_a4.py), so it keeps screen type rather than the A3 sheet's. */
+.quiet{margin:8px 0 0;font-style:italic}
+@media (min-width:1280px), print{
+  .sheet.brief{max-width:1180px;font-size:14px;line-height:1.55;gap:16px}
+  .sheet.brief .cols{display:grid;column-count:auto;grid-template-columns:minmax(0,42fr) minmax(0,58fr);gap:0 28px}
+  .sheet.brief .cards{display:flex;flex-direction:column;gap:12px}
+  .sheet.brief h1{font-size:40px}
+  .sheet.brief h2{font-size:13px}
+  .sheet.brief .thesis{font-size:15px}
+  .sheet.brief .card h3{font-size:19px}
+  .sheet.brief .card small,.sheet.brief .row small{font-size:10.5px}
+  .sheet.brief .card p,.sheet.brief .row p{font-size:14px}
+  .sheet.brief .card .pill,.sheet.brief .row .pill{font-size:10.5px}
+  .sheet.brief .sources{font-size:12px}
+  .sheet.brief .sources ol{columns:2}
+  .sheet.brief .foot{font-size:11px}
+}
 @media print{
   body{padding:0;background:var(--surface)}
   .sheet{max-width:none}

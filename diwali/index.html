@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="India Network Bulletin: the festive calendar, its key dates, phases and closures."><meta property="og:title" content="India Network Bulletin"><meta property="og:description" content="India Network Bulletin: the festive calendar, its key dates, phases and closures."><meta property="og:url" content="https://thefavrito.github.io/diwali/"><meta property="og:type" content="article">
+<title>India Network Bulletin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout (pilots): one-page control-room bulletin - masthead, decisions, regional board, map beside lanes to watch, facility signals, exim exposure, numbered insights beside watch rail. Editions from 001: the four-column A3 sheet at the end of this file. Edition 001's end-of-page call and Edition 002's dark decisions block keep their rules below. */
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#13201B; --muted:#5A6A63; --line:#D6DEDA; --faint:#E7ECE9;
+  --accent:#0B6B4C; --accent-ink:#FFFFFF;
+  --g:#1F8A4C; --g-bg:#E3F3E9; --a:#B7791F; --a-bg:#FBF0DC; --r:#B83A2E; --r-bg:#F8E3E0;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 48px}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.mast{display:flex;flex-direction:column;gap:14px;border-bottom:3px solid var(--ink);padding-bottom:16px}
+.mast-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.route{display:inline-flex;align-items:center;gap:8px}
+.shield{background:var(--accent);color:var(--accent-ink);font-family:var(--display);font-weight:800;font-size:12px;padding:2px 7px;border-radius:3px;letter-spacing:.06em}
+h1{font-family:var(--display);font-stretch:88%;font-weight:800;font-size:clamp(34px,6vw,58px);line-height:1;margin:0;letter-spacing:0;text-wrap:balance}
+/* every page: running text justified and hyphenated (owner, 9 Oct 2026: her formatting rules hold on every page); not
+   narrow table cells, where justifying opens gaps between words */
+p,li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.thesis{font-size:18px;max-width:64ch;margin:0;text-wrap:pretty}
+.thesis strong{font-weight:600}
+.overall{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:999px;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.g{color:var(--g);background:var(--g-bg)} .pill.a{color:var(--a);background:var(--a-bg)} .pill.r{color:var(--r);background:var(--r-bg)}
+.pill.n{color:var(--muted);background:var(--faint)}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+h2{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin:0 0 12px;color:var(--muted)}
+.lede{margin:-6px 0 14px;font-size:14px;color:var(--muted);max-width:72ch}
+
+/* regional board */
+.zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.zone{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--zc);padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.zone.g{--zc:var(--g)} .zone.a{--zc:var(--a)} .zone.r{--zc:var(--r)}
+.zone-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.zone h3{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:22px;margin:0;line-height:1}
+.zone p{margin:0;font-size:14px}
+.zone .trend{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+
+/* map + lanes */
+.board{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:24px;align-items:start}
+.mapbox{background:var(--surface);border:1px solid var(--line);padding:12px;margin:0;min-width:0}
+.mapbox svg{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:11px;color:var(--muted);padding:8px 4px 2px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend svg{width:14px;height:14px}
+.m-lane{fill:none;stroke-width:2.6;stroke-linecap:round}
+.m-lane.rail{stroke-dasharray:1 5;stroke-width:3}
+.m-lbl{font:600 10.5px var(--body);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
+.m-sub{font:400 9px var(--mono);fill:var(--muted);paint-order:stroke;stroke:var(--surface);stroke-width:3px}
+.m-sea{font:italic 400 11px var(--body);fill:var(--muted);opacity:.7}
+
+.tbl-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);min-width:0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-top:1px solid var(--faint);vertical-align:top}
+tbody tr:first-child td{border-top:0}
+td.name{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:15px;line-height:1.2;min-width:150px}
+td.name small{display:block;font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:3px}
+td.st{white-space:nowrap}
+.cost{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.cost.hi{color:var(--r)} .cost.md{color:var(--a)}
+
+/* complaint signal */
+.signal{background:var(--surface);border:1px dashed var(--line);padding:18px 20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 32px}
+.signal h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;margin:0 0 6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.signal p{margin:0 0 8px;font-size:14px;max-width:62ch}
+.signal ol{margin:0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+.ghost{border-collapse:collapse;width:100%;font-size:13px;color:var(--muted)}
+.ghost th{padding:6px 8px}
+.ghost td{padding:8px;border-top:1px dashed var(--line)}
+.ghost .bar{display:block;height:8px;background:var(--faint);border-radius:2px}
+
+.two{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:start}
+.item{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 18px;padding-block:16px;border-top:1px solid var(--line)}
+.item:first-of-type{border-top:0;padding-top:0}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;display:flex;flex-direction:column;gap:6px;padding-top:4px}
+.conf{color:var(--ink)}
+.item h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;line-height:1.2;margin:0 0 6px;text-wrap:balance}
+.item p{margin:0 0 8px;max-width:66ch}
+.sowhat{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-size:14px;margin:0}
+.sowhat b{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+.num{font-variant-numeric:tabular-nums}
+
+.rail{background:var(--surface);border:1px solid var(--line);padding:18px 18px 8px}
+.cal{list-style:none;margin:0;padding:0}
+.cal li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;padding-block:9px;border-top:1px dashed var(--line);font-size:13.5px;line-height:1.5}
+.cal li:first-child{border-top:0}
+.cal .d{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--muted);padding-top:1px}
+.cal li.hot .d{color:var(--r);font-weight:500}
+.cal li.today .d{color:var(--accent);font-weight:500}
+
+.call{background:var(--ink);color:var(--bg);padding:22px 24px;display:flex;flex-direction:column;gap:10px}
+.call h2{color:var(--bg);opacity:.75;margin:0}
+.call ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-width:84ch}
+.call ol.dec{gap:16px}
+.dec p{margin:0}
+.dec .what{font-weight:600}
+.dec .why{font-size:14px;opacity:.85;margin-top:4px}
+.dec .why b{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;opacity:.75;margin-right:8px}
+
+/* decisions from Edition 001: one numbered line each, situation then the decision in bold */
+.declist{margin:0;padding:0;list-style:none;counter-reset:dec;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent)}
+.declist li{counter-increment:dec;display:grid;grid-template-columns:28px minmax(0,1fr);gap:0 10px;padding:12px 16px;border-top:1px solid var(--faint);font-size:15px;max-width:none}
+.declist li:first-child{border-top:0}
+.declist li::before{content:counter(dec);font-family:var(--display);font-stretch:80%;font-weight:800;font-size:20px;line-height:1.2;color:var(--accent)}
+.declist strong{font-weight:600}
+.mapnote{font-size:12.5px;color:var(--muted);padding:6px 4px 0;line-height:1.45}
+.key{margin:-4px 0 12px;font-size:12.5px;color:var(--muted);line-height:1.9}
+.key .pill{font-size:10.5px;padding:1px 7px;vertical-align:1px}
+.rail .key{margin:-6px 0 6px}
+.changes{margin:0;font-size:13px;color:var(--muted);max-width:90ch;border-left:3px solid var(--line);padding-left:10px}
+.checks{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:84ch;font-size:14.5px}
+
+/* insights from Edition 001: numbered by priority */
+.ins{list-style:none;margin:0;padding:0;counter-reset:ins}
+.ins>li{counter-increment:ins;display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 14px;padding-block:16px;border-top:1px solid var(--line)}
+.ins>li:first-child{border-top:0;padding-top:0}
+.ins>li::before{content:counter(ins);font-family:var(--display);font-stretch:80%;font-weight:800;font-size:30px;line-height:1;color:var(--accent)}
+.ins-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:6px}
+.ins h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;line-height:1.2;margin:0;text-wrap:balance}
+.conf-chip{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ins p{margin:0 0 8px;max-width:66ch}
+.ins .implic{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-weight:500;margin:0}
+
+.ref{font-family:var(--mono);font-size:10px;line-height:0;margin-left:1px;letter-spacing:0;vertical-align:baseline;position:relative;top:-.55em}  /* not into the line above (owner, 17 Oct 2026) */
+.ref a{text-decoration:none}
+
+.method{font-size:13.5px;color:var(--muted);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px}
+.method h2{grid-column:1/-1;margin:0}
+.method p{margin:0}
+.sources{font-size:13px;color:var(--muted)}
+.sources ol{margin:0;padding-left:20px;columns:2;column-gap:32px}
+.sources li{break-inside:avoid;margin-bottom:4px}
+.foot{font-family:var(--mono);font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+
+@media (max-width:900px){
+  .zones{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .board,.two,.signal,.method{grid-template-columns:minmax(0,1fr)}
+  .mapbox{max-width:520px}
+  .sources ol{columns:1}
+}
+@media (max-width:520px){
+  .zones{grid-template-columns:minmax(0,1fr)}
+  .item{grid-template-columns:minmax(0,1fr)}
+  .ins>li{grid-template-columns:26px minmax(0,1fr);gap:0 10px}
+  .tag{flex-direction:row;gap:12px;padding-top:0}
+  .thesis{font-size:16px}
+}
+/* From Edition 001: one landscape A3 sheet in four columns (owner, 6 Oct 2026). The masthead runs across
+   the top; .cols holds 1) the regional outlook, 2) the map and roads, 3) national insight cards (with the
+   flows where a delay costs more), 4) decisions, dates, calls and method, side by side on wide screens and
+   in print, one under another on phones. Sources run across the foot. make build prints bulletin.pdf and
+   fails if it runs past one A3 page (engine/pdf.py). The A3 @page rule is written by render_sheet, so the
+   seasonal calendar and network pages, which share this file, print as before. */
+.sheet{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.sheet .mast-l,.sheet .mast-r{display:flex;flex-direction:column;gap:12px;min-width:0}
+.cols{display:flex;flex-direction:column;gap:26px}
+.col{min-width:0;display:flex;flex-direction:column;gap:12px}
+.col>section{display:flex;flex-direction:column}
+.sheet .key{margin:0 0 8px}
+.sheet .zones{grid-template-columns:minmax(0,1fr)}
+.sheet .mapbox{margin-bottom:10px}
+.rows{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line)}
+.row{padding:8px 12px;border-top:1px solid var(--faint);border-left:3px solid var(--rc,var(--line))}
+.row:first-child{border-top:0}
+.row.g{--rc:var(--g)} .row.a{--rc:var(--a)} .row.r{--rc:var(--r)}
+.row-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.row h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:15px;line-height:1.2;margin:0}
+.row small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
+.row p{margin:3px 0 0;font-size:14px}
+/* insight cards: numbered, a status-coloured top border when the card carries a status (else accent) */
+.cards{list-style:none;margin:0;padding:0;counter-reset:ins;display:flex;flex-direction:column;gap:12px}
+.card{counter-increment:ins;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--cc,var(--accent));padding:12px 16px 14px;display:flex;flex-direction:column;gap:6px}
+.card.g{--cc:var(--g)} .card.a{--cc:var(--a)} .card.r{--cc:var(--r)}
+.card h3{font-family:var(--display);font-stretch:88%;font-weight:700;font-size:19px;line-height:1.2;margin:0;text-wrap:balance}
+.card h3::before{content:counter(ins) ". ";color:var(--accent)}
+.card small{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:-4px}
+.card p{margin:0}
+.card .implic{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-weight:500}
+.sheet .col .rail{padding:12px 14px 4px}
+@media (min-width:1280px), print{
+  body{font-size:10.5px;line-height:1.5;padding-block:16px}  /* lines not stuck together (owner, 17 Oct 2026) */
+  .sheet{max-width:1540px;gap:8px}
+  .sheet .mast{display:grid;grid-template-columns:minmax(0,38fr) minmax(0,62fr);gap:6px 28px;align-items:end;padding-bottom:9px;border-bottom-width:2px}
+  .sheet .mast-l,.sheet .mast-r{gap:6px}
+  .sheet h1{font-size:42px}
+  .sheet .thesis{font-size:13px;line-height:1.5;max-width:none}
+  .sheet .changes{max-width:none;font-size:11px;line-height:1.5}
+  .cols{display:grid;grid-template-columns:minmax(0,17fr) minmax(0,19fr) minmax(0,35fr) minmax(0,29fr);gap:0 16px;align-items:start}
+  .col+.col{border-left:1px solid var(--faint);padding-left:16px;margin-left:-0px}
+  .col{gap:9px}
+  .sheet h2{font-size:10.5px;margin-bottom:5px}
+  .sheet .zones{gap:6px}
+  .sheet .zone{padding:6px 9px 7px;gap:2px;border-top-width:3px}
+  .sheet .zone h3{font-size:15px}
+  .sheet .zone p{font-size:10.5px}
+  .sheet .zone .trend{font-size:9.5px}
+  .sheet .declist li{padding:6px 9px;grid-template-columns:16px minmax(0,1fr);font-size:11px}
+  .sheet .declist li::before{font-size:15px}
+  .sheet .mapbox{padding:4px;margin-bottom:6px}
+  .sheet .legend{font-size:8.5px;gap:1px 8px;padding:2px 2px 0}
+  .row{padding:5px 8px}
+  .row h3{font-size:12.5px}
+  .row small{font-size:8.5px}
+  .row p{font-size:10.5px;margin-top:2px}
+  .sheet .cost{font-size:9px}
+  .sheet .key{font-size:10px;line-height:1.6;margin-bottom:4px}
+  .cards{gap:6px}
+  .card{padding:6px 9px 7px;gap:3px;border-top-width:3px}
+  .card h3{font-size:13.5px}
+  .card small{font-size:8.5px;margin-top:-2px}
+  .sheet .card .pill{font-size:9px;padding:1px 6px}
+  .card p{font-size:10.5px}
+  .card .implic{padding-left:8px}
+  .sheet .col .rail{padding:7px 9px 2px}
+  .sheet .cal li{grid-template-columns:52px minmax(0,1fr);gap:6px;padding-block:3px;font-size:10px}
+  .sheet .cal .d{font-size:9px}
+  .sheet .checks{padding-left:15px;gap:3px;font-size:10.5px}
+  .sheet .method{display:block;font-size:9.5px;line-height:1.5}
+  .sheet .method p{margin:0 0 3px}
+  .sheet .sources{font-size:8px;line-height:1.4;border-top:1px solid var(--line);padding-top:5px}
+  .sheet .sources ol{columns:6;column-gap:12px;padding-left:16px}
+  .sheet .sources li{margin-bottom:1px}
+  .sheet .foot{font-size:8.5px;padding-top:2px;margin:0;border-top:0}
+}
+/* Wide screens and print (owner, 13 Oct 2026: "Why does the A3 have so much white space?"): the four columns are one
+   newspaper flow in the page's order, the map heading the first column (moved there by a script in render_sheet), so
+   a short section never leaves a hole. On screen the columns balance; in print engine/pdf.py fills them to the foot
+   and scales the type to fit. */
+@media (min-width:1280px), print{
+  .sheet .cols{display:block;column-count:4;column-gap:20px;column-rule:1px solid var(--faint)}
+  .sheet .col,.sheet .col>section,.sheet .zones,.sheet .cards{display:block}
+  .sheet .col+.col{border-left:0;padding-left:0}
+  .sheet .col>section,.sheet .col+.col{margin-top:10px}
+  .sheet .cols>.col:first-child{margin-top:0}
+  .sheet .zone,.sheet .card{display:block;margin-bottom:6px;break-inside:avoid}  /* never split across columns (owner, 15 Oct 2026) */
+  .sheet .zone>*+*,.sheet .card>*+*{margin-top:3px}
+  .sheet .card small{display:block;margin-top:1px}
+  .sheet .row{-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .sheet h2,.sheet h3,.sheet .zone-head,.sheet .row-head,.sheet small{break-after:avoid}
+  .sheet .mapbox,.sheet .cal li,.sheet .declist li,.sheet .checks li{break-inside:avoid}
+  .sheet p{orphans:2;widows:2}
+  .sheet h1,.sheet h2,.sheet h3,.sheet .sources li{text-align:left}
+  .sheet .cols>.mapbox{margin:0 0 10px}
+}
+/* The brief (owner, 28 Oct 2026): the map, lanes and everywhere-else line beside the insights, at reading size.
+   Its printed form is the two A4 pages (engine/render_a4.py), so it keeps screen type rather than the A3 sheet's. */
+.quiet{margin:8px 0 0;font-style:italic}
+@media (min-width:1280px), print{
+  .sheet.brief{max-width:1180px;font-size:14px;line-height:1.55;gap:16px}
+  .sheet.brief .cols{display:grid;column-count:auto;grid-template-columns:minmax(0,42fr) minmax(0,58fr);gap:0 28px}
+  .sheet.brief .cards{display:flex;flex-direction:column;gap:12px}
+  .sheet.brief h1{font-size:40px}
+  .sheet.brief h2{font-size:13px}
+  .sheet.brief .thesis{font-size:15px}
+  .sheet.brief .card h3{font-size:19px}
+  .sheet.brief .card small,.sheet.brief .row small{font-size:10.5px}
+  .sheet.brief .card p,.sheet.brief .row p{font-size:14px}
+  .sheet.brief .card .pill,.sheet.brief .row .pill{font-size:10.5px}
+  .sheet.brief .sources{font-size:12px}
+  .sheet.brief .sources ol{columns:2}
+  .sheet.brief .foot{font-size:11px}
+}
+/* one card per event (owner, 28 Oct 2026): where it lands, one row a place, a dot in its own colour */
+.hits{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+.hits li{position:relative;padding-left:14px;text-align:justify;hyphens:auto}
+.hits li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.hits li.g::before{background:var(--g)} .hits li.a::before{background:var(--a)} .hits li.r::before{background:var(--r)}
+.hits b{font-weight:600}
+/* dates to watch (owner, 28 Oct 2026): one short line a date under the masthead */
+.datestrip{margin:12px 0}
+.datestrip h2{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.datestrip ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.datestrip li{position:relative;padding-left:14px}
+.datestrip li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.datestrip li.g::before{background:var(--g)} .datestrip li.a::before{background:var(--a)} .datestrip li.r::before{background:var(--r)}
+.datestrip b{font-family:var(--mono);font-weight:600;margin-right:6px}
+/* The peak's first screen (owner, 29 Oct 2026): summary full width, half-width map beside the key and dates, region cards */
+.peak .mast{margin-bottom:12px}
+.peak>.thesis{margin:0 0 12px}
+.peak .mapline{display:flex;flex-direction:column;gap:12px;margin:0 0 12px}
+.peak .mapline .map{margin:0}
+.peak .mapline .map svg{display:block;width:100%;max-width:360px;height:auto;margin:0 auto}
+.peak .mapline .side{display:flex;flex-direction:column;gap:10px}
+.peak .mapline .key{font-size:.82em;color:var(--muted);margin:0}
+@media (min-width:760px){.peak .mapline{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;align-items:start}.peak .mapline .map svg{max-width:none}}
+.regions{margin:0 0 16px}
+.regions h2{margin:0 0 6px}
+.regions ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media (min-width:760px){.regions ul{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.regions li{display:flex;flex-direction:column;gap:2px;padding:6px 10px;border:1px solid var(--line);border-top:4px solid var(--g);background:var(--g-bg)}
+.regions li.a{border-top-color:var(--a);background:var(--a-bg)} .regions li.r{border-top-color:var(--r);background:var(--r-bg)}
+.regions li b{font-weight:600}
+.regions .days{font-family:var(--mono);font-weight:600;font-size:1.35em;line-height:1.1}
+.regions .st{font-family:var(--mono);font-size:.72em;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.regions .key{font-size:.78em;color:var(--muted);margin:6px 0 0}
+.hits .hit-r{font-family:var(--mono);font-size:.8em;color:var(--muted)}
+.peak .key .kl{display:block}
+.card .next{margin-top:6px;font-size:.92em;text-align:justify;hyphens:auto}
+.card .next b{font-weight:600}
+.newsp.peak .mast-h{display:block}
+.newsp.peak .mast-h h1{text-wrap:pretty;max-width:none}
+.newsp.peak .mast-h .pill{display:inline-flex;margin-top:.45em}
+.decide{margin-top:.5em;padding:.45em .7em .5em;background:var(--g-bg);border:1px solid var(--accent);border-left:4px solid var(--accent)}
+.decide h4{margin:0;font-family:var(--mono);font-size:.74em;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.decide .who{margin:.35em 0 .1em;font-weight:600;font-size:.92em;text-align:justify}
+.decide ul{margin:0;padding-left:1.1em}
+.decide li{text-align:justify;hyphens:auto;font-size:.92em;line-height:1.5;margin:.1em 0}
+.sheet.peak .decide{break-inside:auto}
+.sheet.peak .decide li,.sheet.peak .decide .who{break-inside:avoid;break-after:auto}
+.sheet.peak .decide .who{break-after:avoid}
+/* News cards (owner, 28 Oct 2026): no section headings, one run of cards with the map among them */
+.newsp .news{display:flex;flex-direction:column;gap:12px}
+.newsp .news .mapbox{margin:0}
+.newsp .card h3::before{content:none}
+@media (min-width:1280px), print{
+  .sheet.newsp .news{display:block;column-count:2;column-gap:24px}
+  .sheet.newsp .news>*{break-inside:avoid;margin:0 0 12px;display:block}
+  .sheet.newsp .card>*+*{margin-top:4px}
+}
+@media print{
+  body{padding:0;background:var(--surface)}
+  .sheet{max-width:none}
+  a{text-decoration:none}
+}
+/* phones (owner, 9 Oct 2026: her formatting rules hold on every page): region cards, insight cards, the road list and
+   the map drop their side borders and padding, so justified text gets the full column and no gaps open between words */
+@media (max-width:520px){
+  .sheet .zone,.sheet .card,.sheet .rows,.sheet .mapbox{border-left:0;border-right:0;padding-left:0;padding-right:0;background:transparent}
+  .sheet .rows{border-top:0;border-bottom:0}
+  .sheet .row{padding-left:10px;padding-right:0}
+}
+/* the Diwali peak (engine/peak.py): countdown, delivery-promise table, calls by reader, phase, standing boxes */
+.countdown{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;margin:0 0 12px;padding:6px 12px;background:var(--accent);color:#fff;text-align:justify}
+.countdown b{font-family:var(--mono);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:13px}
+.countdown span{font-style:italic;font-size:13px}
+.promise table{width:100%;border-collapse:collapse;font-size:14px}
+.promise th{font-family:var(--mono);font-size:11px;font-weight:500;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--line);padding:4px 6px}
+.promise td{padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top;text-align:justify;hyphens:auto}
+.promise .dot{display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;vertical-align:.05em;background:var(--muted)}
+.promise .dot.g{background:var(--g)} .promise .dot.a{background:var(--a)} .promise .dot.r{background:var(--r)}
+.promise td.days{font-family:var(--mono);font-weight:600;white-space:nowrap}
+.promise .key{font-size:12px;color:var(--muted)}
+.card .call{margin-top:6px}
+.phase,.boxes,.pcalls,.wrap{margin:20px 0 0}
+.ph-item,.box{border-left:3px solid var(--accent);padding:2px 0 2px 12px;margin:0 0 12px}
+.ph-item h3,.box h3{margin:0}
+.ph-item p,.box p,.pcalls li,.boxes .quiet{text-align:justify;hyphens:auto}
+.ph-item .for{font-family:var(--mono);font-size:11px;text-transform:uppercase;color:var(--muted)}
+@media (max-width:520px){
+  .promise table,.promise tbody,.promise tr,.promise td{display:block;width:auto}
+  .promise thead{display:none}
+  .promise tr{border-top:3px solid var(--line);padding:6px 0}
+  .promise tr.a{border-top-color:var(--a)} .promise tr.r{border-top-color:var(--r)} .promise tr.g{border-top-color:var(--g)}
+  .promise td{border:0;padding:2px 0}
+  .promise td::before{content:attr(data-label) ": ";font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase}
+  .ph-item,.box{border-left:0;padding-left:0}
+}
+.nb { white-space: nowrap; }
+</style>
+<style>.sitenav{max-width:1100px;margin:28px auto 0;padding:14px 16px 0;border-top:1px solid #D6DEDA;display:flex;flex-wrap:wrap;gap:8px 20px;font:500 13px "IBM Plex Mono",ui-monospace,monospace;box-sizing:border-box}.sitenav.top{margin:0 auto 18px;max-width:100%;justify-content:center;padding:14px 16px 12px;border-top:0;border-bottom:1px solid #D6DEDA}.sitenav a{color:#0B6B4C}.sitenav .links{display:contents}.burger{display:none;font:inherit;color:#0B6B4C;background:none;border:1px solid #D6DEDA;padding:6px 12px;cursor:pointer}@media (max-width:600px){.sitenav.top{display:block}.burger{display:inline-block}.sitenav.top .links{display:none}.sitenav.top.open .links{display:flex;flex-direction:column;margin-top:8px}.sitenav.top .links a{padding:11px 0;border-top:1px solid #D6DEDA}}</style></head><body><nav class="sitenav top" aria-label="Site"><button class="burger" type="button" aria-expanded="false" aria-controls="navlinks"><span aria-hidden="true">&#9776;</span> Menu</button><div class="links" id="navlinks"><a href="/about/">About</a><a href="/">Latest bulletin</a><a href="/archive/">All editions</a></div></nav>
+
+<div class="sheet peakcal"><h1>India Network Bulletin: the festive calendar</h1><p><i>For e-commerce, D2C and consumer-goods teams delivering orders and stocking shops through Diwali. The bulletin runs as India Network Bulletin from Thu 29 Oct to Wed 25 Nov 2026, then goes back to the daily bulletin.</i></p><h2>Key dates</h2><table><thead><tr><th>Date (2026)</th><th>Event</th><th>Why it matters</th></tr></thead><tbody><tr><td data-label="Date (2026)">Fri 6 Nov</td><td data-label="Event">Dhanteras</td><td data-label="Why it matters">The biggest buying day for durables, gold and utensils, and the real deadline for many deliveries (Gujarat's holiday list gives the 7th) (<a href="https://www.drikpanchang.com/festivals/dhanteras/festivals-dhanteras-puja-timings.html?year=2026">source</a>)</td></tr><tr><td data-label="Date (2026)">Sun 8 Nov</td><td data-label="Event">Diwali (Lakshmi Puja)</td><td data-label="Why it matters">Most of the country stops; a compulsory central government holiday, and Tamil Nadu's Deepavali holiday falls the same day (<a href="https://www.keka.com/compliance/public-holiday/delhi">source</a>, <a href="https://www.officeholidays.com/holidays/india/tamil-nadu/diwali">source</a>)</td></tr><tr><td data-label="Date (2026)">Mon 9 Nov</td><td data-label="Event">Govardhan Puja</td><td data-label="Why it matters">A restricted holiday in Delhi (<a href="https://www.keka.com/compliance/public-holiday/delhi">source</a>)</td></tr><tr><td data-label="Date (2026)">Tue 10 Nov</td><td data-label="Event">Gujarati New Year (Vikram Samvat)</td><td data-label="Why it matters">Gujarat's shutdown begins: a state public holiday (<a href="https://www.keka.com/compliance/public-holiday/gujarat">source</a>)</td></tr><tr><td data-label="Date (2026)">Wed 11 Nov</td><td data-label="Event">Bhai Dooj (Bhai Bij in Gujarat)</td><td data-label="Why it matters">Many workers still away; the Delhi restricted list and Gujarat's list both give the 11th (<a href="https://www.keka.com/compliance/public-holiday/delhi">source</a>)</td></tr><tr><td data-label="Date (2026)">Fri 13 Nov – Mon 16 Nov</td><td data-label="Event">Chhath Puja (evening offering on the 15th)</td><td data-label="Why it matters">The peak of workers leaving for Bihar and east UP; their return can take one to two weeks after (<a href="https://shubhpanchang.com/festivals/chhath-puja">source</a>)</td></tr><tr><td data-label="Date (2026)">Sat 14 Nov</td><td data-label="Event">Labh Pancham</td><td data-label="Why it matters">Gujarat's markets and transport restart (<a href="https://www.drikpanchang.com/diwali/labh-panchami/labh-panchami-date-time.html?year=2026">source</a>)</td></tr></tbody></table><h2>Phases</h2><ul><li><b>Before Diwali, Thu 29 Oct – Fri 6 Nov.</b> Last reliable order dates for delivery by Dhanteras and by Diwali, region by region; courier order cut-offs and route embargoes; last reliable top-ups to shops by state; sweets and dry fruits on routes where a delay lands after the festival.</li><li><b>Diwali week, Sat 7 Nov – Wed 11 Nov.</b> What closes and where, by state (Gujarat's New Year shutdown from the 10th, Kali Puja in Bengal, wholesale and produce markets); which couriers are running and at what capacity; city rules on firecracker days.</li><li><b>After Diwali, Thu 12 Nov – Wed 25 Nov.</b> Staff away after Diwali and for Chhath (train waiting lists to Patna, Gorakhpur, Darbhanga, Muzaffarpur; courier bonuses to keep riders; depot staffing reports); Gujarat's restart after Labh Pancham; the returns wave and reverse-pickup capacity; which depots are short and when shops get normal deliveries again.</li></ul><h2>The marketplace sales</h2><ul><li><b>Amazon Great Indian Festival</b>: from Thu 8 Oct. End date not announced yet.</li><li><b>Flipkart Big Billion Days</b>: from Fri 9 Oct. End date not announced yet.</li></ul><p><i>Dates are checked against official holiday lists and panchangs; where they differ by a day the row says so.</i></p></div>
+
+<nav class="sitenav" aria-label="More"><a href="/diwali/">Festive calendar</a><a href="/seasons/">Seasonal calendar</a><a href="/network/">Reference network</a></nav>
+
+<script>(function(){function fit(){var m=document.querySelector("header.mast");if(!m)return;var r=m.getBoundingClientRect();document.querySelectorAll(".sitenav").forEach(function(n){n.style.maxWidth=r.width+"px";n.style.paddingLeft=n.style.paddingRight="0";n.style.marginLeft="0";n.style.marginLeft=(r.left-n.getBoundingClientRect().left)+"px"})}addEventListener("load",fit);addEventListener("resize",fit);var t=document.querySelector(".sitenav.top"),b=t&&t.querySelector(".burger");if(b)b.addEventListener("click",function(){b.setAttribute("aria-expanded",t.classList.toggle("open"))})})()</script>
+</body></html>

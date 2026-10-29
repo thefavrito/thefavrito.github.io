@@ -275,6 +275,63 @@ td.st{white-space:nowrap}
   .sheet.brief .sources ol{columns:2}
   .sheet.brief .foot{font-size:11px}
 }
+/* one card per event (owner, 28 Oct 2026): where it lands, one row a place, a dot in its own colour */
+.hits{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+.hits li{position:relative;padding-left:14px;text-align:justify;hyphens:auto}
+.hits li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.hits li.g::before{background:var(--g)} .hits li.a::before{background:var(--a)} .hits li.r::before{background:var(--r)}
+.hits b{font-weight:600}
+/* dates to watch (owner, 28 Oct 2026): one short line a date under the masthead */
+.datestrip{margin:12px 0}
+.datestrip h2{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.datestrip ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.datestrip li{position:relative;padding-left:14px}
+.datestrip li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.datestrip li.g::before{background:var(--g)} .datestrip li.a::before{background:var(--a)} .datestrip li.r::before{background:var(--r)}
+.datestrip b{font-family:var(--mono);font-weight:600;margin-right:6px}
+/* The peak's first screen (owner, 29 Oct 2026): summary full width, half-width map beside the key and dates, region cards */
+.peak .mast{margin-bottom:12px}
+.peak>.thesis{margin:0 0 12px}
+.peak .mapline{display:flex;flex-direction:column;gap:12px;margin:0 0 12px}
+.peak .mapline .map{margin:0}
+.peak .mapline .map svg{display:block;width:100%;max-width:360px;height:auto;margin:0 auto}
+.peak .mapline .side{display:flex;flex-direction:column;gap:10px}
+.peak .mapline .key{font-size:.82em;color:var(--muted);margin:0}
+@media (min-width:760px){.peak .mapline{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;align-items:start}.peak .mapline .map svg{max-width:none}}
+.regions{margin:0 0 16px}
+.regions h2{margin:0 0 6px}
+.regions ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media (min-width:760px){.regions ul{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.regions li{display:flex;flex-direction:column;gap:2px;padding:6px 10px;border:1px solid var(--line);border-top:4px solid var(--g);background:var(--g-bg)}
+.regions li.a{border-top-color:var(--a);background:var(--a-bg)} .regions li.r{border-top-color:var(--r);background:var(--r-bg)}
+.regions li b{font-weight:600}
+.regions .days{font-family:var(--mono);font-weight:600;font-size:1.35em;line-height:1.1}
+.regions .st{font-family:var(--mono);font-size:.72em;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.regions .key{font-size:.78em;color:var(--muted);margin:6px 0 0}
+.hits .hit-r{font-family:var(--mono);font-size:.8em;color:var(--muted)}
+.peak .key .kl{display:block}
+.card .next{margin-top:6px;font-size:.92em;text-align:justify;hyphens:auto}
+.card .next b{font-weight:600}
+.newsp.peak .mast-h{display:block}
+.newsp.peak .mast-h h1{text-wrap:pretty;max-width:none}
+.newsp.peak .mast-h .pill{display:inline-flex;margin-top:.45em}
+.decide{margin-top:.5em;padding:.45em .7em .5em;background:var(--g-bg);border:1px solid var(--accent);border-left:4px solid var(--accent)}
+.decide h4{margin:0;font-family:var(--mono);font-size:.74em;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.decide .who{margin:.35em 0 .1em;font-weight:600;font-size:.92em;text-align:justify}
+.decide ul{margin:0;padding-left:1.1em}
+.decide li{text-align:justify;hyphens:auto;font-size:.92em;line-height:1.5;margin:.1em 0}
+.sheet.peak .decide{break-inside:auto}
+.sheet.peak .decide li,.sheet.peak .decide .who{break-inside:avoid;break-after:auto}
+.sheet.peak .decide .who{break-after:avoid}
+/* News cards (owner, 28 Oct 2026): no section headings, one run of cards with the map among them */
+.newsp .news{display:flex;flex-direction:column;gap:12px}
+.newsp .news .mapbox{margin:0}
+.newsp .card h3::before{content:none}
+@media (min-width:1280px), print{
+  .sheet.newsp .news{display:block;column-count:2;column-gap:24px}
+  .sheet.newsp .news>*{break-inside:avoid;margin:0 0 12px;display:block}
+  .sheet.newsp .card>*+*{margin-top:4px}
+}
 @media print{
   body{padding:0;background:var(--surface)}
   .sheet{max-width:none}
@@ -286,6 +343,32 @@ td.st{white-space:nowrap}
   .sheet .zone,.sheet .card,.sheet .rows,.sheet .mapbox{border-left:0;border-right:0;padding-left:0;padding-right:0;background:transparent}
   .sheet .rows{border-top:0;border-bottom:0}
   .sheet .row{padding-left:10px;padding-right:0}
+}
+/* the Diwali peak (engine/peak.py): countdown, delivery-promise table, calls by reader, phase, standing boxes */
+.countdown{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;margin:0 0 12px;padding:6px 12px;background:var(--accent);color:#fff;text-align:justify}
+.countdown b{font-family:var(--mono);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:13px}
+.countdown span{font-style:italic;font-size:13px}
+.promise table{width:100%;border-collapse:collapse;font-size:14px}
+.promise th{font-family:var(--mono);font-size:11px;font-weight:500;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--line);padding:4px 6px}
+.promise td{padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top;text-align:justify;hyphens:auto}
+.promise .dot{display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;vertical-align:.05em;background:var(--muted)}
+.promise .dot.g{background:var(--g)} .promise .dot.a{background:var(--a)} .promise .dot.r{background:var(--r)}
+.promise td.days{font-family:var(--mono);font-weight:600;white-space:nowrap}
+.promise .key{font-size:12px;color:var(--muted)}
+.card .call{margin-top:6px}
+.phase,.boxes,.pcalls,.wrap{margin:20px 0 0}
+.ph-item,.box{border-left:3px solid var(--accent);padding:2px 0 2px 12px;margin:0 0 12px}
+.ph-item h3,.box h3{margin:0}
+.ph-item p,.box p,.pcalls li,.boxes .quiet{text-align:justify;hyphens:auto}
+.ph-item .for{font-family:var(--mono);font-size:11px;text-transform:uppercase;color:var(--muted)}
+@media (max-width:520px){
+  .promise table,.promise tbody,.promise tr,.promise td{display:block;width:auto}
+  .promise thead{display:none}
+  .promise tr{border-top:3px solid var(--line);padding:6px 0}
+  .promise tr.a{border-top-color:var(--a)} .promise tr.r{border-top-color:var(--r)} .promise tr.g{border-top-color:var(--g)}
+  .promise td{border:0;padding:2px 0}
+  .promise td::before{content:attr(data-label) ": ";font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase}
+  .ph-item,.box{border-left:0;padding-left:0}
 }
 .nb { white-space: nowrap; }
 </style>
@@ -644,7 +727,7 @@ td.hi{background:var(--a-bg);color:var(--ink)} td.hi2{background:#F3DDB2;color:v
 
 </div>
 
-<nav class="sitenav" aria-label="More"><a href="/seasons/">Seasonal calendar</a><a href="/network/">Reference network</a></nav>
+<nav class="sitenav" aria-label="More"><a href="/diwali/">Festive calendar</a><a href="/seasons/">Seasonal calendar</a><a href="/network/">Reference network</a></nav>
 
 <script>(function(){function fit(){var m=document.querySelector("header.mast");if(!m)return;var r=m.getBoundingClientRect();document.querySelectorAll(".sitenav").forEach(function(n){n.style.maxWidth=r.width+"px";n.style.paddingLeft=n.style.paddingRight="0";n.style.marginLeft="0";n.style.marginLeft=(r.left-n.getBoundingClientRect().left)+"px"})}addEventListener("load",fit);addEventListener("resize",fit);var t=document.querySelector(".sitenav.top"),b=t&&t.querySelector(".burger");if(b)b.addEventListener("click",function(){b.setAttribute("aria-expanded",t.classList.toggle("open"))})})()</script>
 </body></html>

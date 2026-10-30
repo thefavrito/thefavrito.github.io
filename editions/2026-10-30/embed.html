@@ -428,9 +428,42 @@ html:not(.sheet) .newsp.peak .p2 .srcs{padding-top:0}
 // The last page holds the method, footer and sources (owner, 8 Oct 2026).
 // The result goes in data-layout for the build to check.
 (function () {
+  // the headline runs the column's full width (owner, 29 and 30 Oct 2026: "on the website the title width is not full
+  // column width"): its box always did, but its first line stopped short where the words broke. Its size is moved as
+  // little as it takes, up to a quarter either way, until the widest line reaches the right edge
+  const lines = h1 => {  // widths of the headline's lines, in px
+    const r = document.createRange();
+    r.selectNodeContents(h1);
+    const rows = [];
+    for (const b of r.getClientRects()) {
+      if (!b.width) continue;
+      const row = rows.find(x => Math.abs(x.top - b.top) < b.height / 2);
+      if (row) { row.left = Math.min(row.left, b.left); row.right = Math.max(row.right, b.right); }
+      else rows.push({ top: b.top, left: b.left, right: b.right });
+    }
+    return rows.map(x => x.right - x.left);
+  };
+  const fill = h1 => {
+    const cs = getComputedStyle(h1), w = h1.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    return w > 0 ? Math.max(0, ...lines(h1)) / w : 1;
+  };
+  const fitHead = root => root.querySelectorAll('.mast h1, .mast-h h1').forEach(h1 => {
+    if (h1.offsetParent === null) return;
+    h1.style.fontSize = '';
+    const base = parseFloat(getComputedStyle(h1).fontSize), n = Math.max(lines(h1).length, 2);
+    let best = { f: '', x: fill(h1) };
+    for (let k = 1; k <= 25 && best.x < 0.97; k++) for (const f of [base * (1 + k / 100), base * (1 - k / 100)]) {
+      h1.style.fontSize = f.toFixed(2) + 'px';
+      const x = fill(h1);
+      if (lines(h1).length <= n && x > best.x) best = { f: f.toFixed(2) + 'px', x };
+      if (best.x >= 0.97) break;
+    }
+    h1.style.fontSize = best.f;
+  });
   // a4.html?check (build only): on screen, find any two pieces of text drawn over each other
   if (/[?&]check\b/.test(location.search)) {
     (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+      fitHead(document);
       const els = [...document.querySelectorAll('p, li, h1, h2, h3, td, th, .pill, figcaption, .b-row, .y-row, .ms-big, .lane-h b')]
         .filter(el => el.offsetParent !== null);
       const rs = els.map(el => el.getBoundingClientRect());
@@ -452,6 +485,10 @@ html:not(.sheet) .newsp.peak .p2 .srcs{padding-top:0}
         if (td.offsetParent === null) return;
         const lh = parseFloat(getComputedStyle(td).lineHeight) || 1.4 * parseFloat(getComputedStyle(td).fontSize);
         if (td.getBoundingClientRect().height > 1.9 * lh + 8) hits.push('date wraps onto several lines: ' + td.textContent.trim());
+      });
+      document.querySelectorAll('.mast h1, .mast-h h1').forEach(h1 => {
+        if (h1.offsetParent !== null && fill(h1) < 0.95)
+          hits.push(`headline stops short of the column's right edge (${Math.round(100 * fill(h1))}% of its width): ` + h1.textContent.trim().slice(0, 40));
       });
       // all text justified, and on a phone every block runs the column's full width (owner, 9 Oct 2026: "same width,
       // screen adjusted ... apply all the rules I have for formatting")
@@ -527,13 +564,18 @@ html:not(.sheet) .newsp.peak .p2 .srcs{padding-top:0}
         const cols = a4.querySelector('.p2 .p2cols');
         if (cols) cols.append(...cols.closest('.page').querySelectorAll(':scope > .srcs'));
       }
-      pages.forEach((pg, i) => {
+      const size = () => pages.forEach((pg, i) => {
         const spill = () => pg.scrollHeight > pg.clientHeight + 1;
         const cap = i ? (sizes[0] || ONE_FLOOR) : 9;
         const s = largest(pg, spill, STEPS.filter(x => x >= ONE_FLOOR - 1e-9 && x <= cap + 1e-9));
         sizes.push(s);
         if (s === null) over.push('page ' + (i + 1));
       });
+      // the headline is fitted to the column at the size page 1 settles on, then the pages are sized again around it
+      size();
+      fitHead(p1);
+      sizes.length = over.length = 0;
+      size();
       const s = sizes[0];
       const pr = p1.getBoundingClientRect(), pad = parseFloat(getComputedStyle(p1).paddingBottom);
       const bottom = Math.max(...[...p1.children].map(el => el.getBoundingClientRect().bottom));
@@ -682,6 +724,10 @@ html:not(.sheet) .newsp.peak .p2 .srcs{padding-top:0}
   }
   if (PRINT) (document.fonts ? document.fonts.ready : Promise.resolve()).then(run);
   else {
+    const fit = () => document.getElementById('a4') && fitHead(document.getElementById('a4'));
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(fit);
+    let wait = 0;
+    addEventListener('resize', () => { cancelAnimationFrame(wait); wait = requestAnimationFrame(fit); });
     let screen = null;  // the screen page as it was, put back after printing
     addEventListener('beforeprint', () => {
       if (screen) return;
